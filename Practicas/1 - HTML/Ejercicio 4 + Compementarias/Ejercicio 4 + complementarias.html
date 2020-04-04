@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Práctica HTML5</title>
+  </head>
+  <body>
+      <!-- Ejercicio 4 -->
+      <h2>Ejercicio 4</h2>
+      <img alt = "utn_logo" src="https://upload.wikimedia.org/wikipedia/commons/6/67/UTN_logo.jpg" width="70" height = "70" /> <br/>
+<hr/>
+<h3>AÑO 2008</h3>
+<table border = "1" width = "400" >
+		<tr>
+			<th  colspan="6" align="center">Examenes</th>
+</tr>
+		<tr>
+			<td colspan="4" rowspan="4">Fecha:&nbsp;&nbsp;08/04/20  </td>
+    			<td align = "right">Aprobados</td>
+    		</tr>
+		<tr>
+   			 <td width = "50%" align="right">24/30</td>
+  		  </tr>
+</table>
+<ol>
+<li><a href = "#enunciado">Enunciado del exámen</a></li>
+<li><a href = "https://github.com/" target = "_blank">Resolución</a></li>
+</ol>
+<p>Puede realizar consultas completando el siguiente formulario:</p><br/>
+<form id = "form-consulta" action = "mailto:x@x.com">
+<label>email:</label>
+<input type = "email"/><br/><br/>
+<label>consulta:</label>
+<textarea form = "form-consulta"></textarea><br/>
+<input type = "submit" value = "Enviar"/>
+<input type = "button" value = "Borrar"/>
+</form>
+<br/>
+<br/>
+<h4>Enunciado del exámen<h4>
+<div id = "text-block">
+<p>Ejercicio 1:.....</p>
+<p>Ejercicio 2: .....</p>
+</div>
+<span> Para más información dirigirse a <a href = "mailto:contacto@xx.com">contacto@xx.com</a></span>
+
+<!-- Ejercicio 2 - complementaria -->
+<h2>Ejercicio 2 - complementaria</h2>
+<audio controls>
+    <source src="https://html5tutorial.info/media/vincent.mp3" type="audio/ogg">
+  </audio>
+<!-- Ejercicio 3 - complementaria -->
+<h2>Ejercicio 3 - complementaria</h2>
+<iframe width="420" height="315"
+    src="https://www.youtube.com/embed/tgbNymZ7vqY">
+    </iframe>
+      <!-- Ejercicio 4 - complementaria -->
+      <h2>Ejericio 4 - Complementaria</h2>
+
+<form>
+<label>Email</label>
+<br/>
+<input name="utn-email" id="utn-email" type="email" required>
+<br/><br/>
+<label>Fecha de nacimiento</label>
+<br/>
+<input name ="utn-date" id="utn-date" type="date">
+<br/><br/>
+<label>Color preferido</label>
+<br/>
+<input name ="utn-color" id="utn-color" type="color">
+<br/><br/>
+<label>Número favorito del 1 al 100</label>
+<br/>
+<input name = "utn-number" id="utn-number" type="number" min="1" max="100">
+<br/><br/>
+<input value = "Enviar respuestas"type = "submit" id="utn-submit" onclick="alert('Gracias por su respuesta')">
+</form>
+  </body>
+</html>
