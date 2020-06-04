@@ -1,0 +1,26 @@
+body {
+	display: flex;
+	justify-content: center;
+}
+
+body div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.submit {
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 1.38;
+	letter-spacing: normal;
+	text-align: center;
+	background-color: #313131;
+	color: white;
+	outline: 0;
+	font-size: 15px;
+	width: 103px;
+	height: 40px;
+	border-radius: 20px;
+	border: none;
+	cursor: pointer;
+}
