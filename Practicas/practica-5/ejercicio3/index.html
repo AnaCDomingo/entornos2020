@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="index.css" media="screen" />
+		<title>Ejercicio 3</title>
+	</head>
+	<body>
+		<form action="enviar.php" method="post">
+            <h1>¡Recomienda esta página a un amigo!</h1>
+			<fieldset>
+                <p>
+					<label>
+						Tu nombre
+						<input type="text" name="nombre" size="25" />
+					</label>
+				</p>
+				<p>
+					<label>
+						Email
+						<input class="inputEmail" type="text" name="email" size="25" />
+					</label>
+				</p>
+				Comentario
+				<p>
+					<label>
+						<textarea
+							name="texto"
+							cols="32"
+                            rows="6"
+                            placeholder="(Opcional)"
+						></textarea>
+					</label>
+				</p>
+				<div class="submitContainer">
+					<input class="submit" type="submit" value="Enviar" />
+				</div>
+			</fieldset>
+		</form>
+	</body>
+</html>
