@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Formultario Alta Ciudad</title>
+    </head>
+    <body>
+        <form action='Alta.php' method="POST" name="FormAlta">
+            <table width="225">
+                <tr>
+                    <td>Id:</td>
+                    <td><input type="number" name="Id" step="0"></td>
+                </tr>
+                <tr>
+                    <td>Ciudad:</td>
+                    <td><input type="text" name="Ciudad" size="20" maxlength="40"></td>
+                </tr>
+                <tr>
+                    <td>País:</td>
+                    <td><input type="text" name="Pais" size="20" maxlength="40"></td>
+                </tr>
+                <tr>
+                    <td>Habitantes:</td>
+                    <td><input type="number" name="Habitantes" step="0"></td>
+                </tr>
+                <tr>
+                    <td>Superficie:</td>
+                    <td><input type="number" name="Superficie" step="any"></td>
+                </tr>
+                <tr>
+                    <td>tieneMetro:</td>
+                    <td><input type="number" name="tieneMetro" min="0" max="1"></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
