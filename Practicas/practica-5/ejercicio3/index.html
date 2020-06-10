@@ -8,12 +8,12 @@
 	</head>
 	<body>
 		<form action="enviar.php" method="post">
-            <h1>¡Recomienda esta página a un amigo!</h1>
+			<h1>¡Recomienda esta página a un amigo!</h1>
 			<fieldset>
-                <p>
+				<p>
 					<label>
 						Tu nombre
-						<input type="text" name="nombre" size="25" />
+						<input class="inputName" type="text" name="nombre" size="25" />
 					</label>
 				</p>
 				<p>
@@ -26,10 +26,11 @@
 				<p>
 					<label>
 						<textarea
+							class="commentBox"
 							name="texto"
 							cols="32"
-                            rows="6"
-                            placeholder="(Opcional)"
+							rows="6"
+							placeholder="(Opcional)"
 						></textarea>
 					</label>
 				</p>
