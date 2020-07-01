@@ -25,19 +25,20 @@ if (isset($_POST["nombre_usuario"])) {
         $mensaje = "¡Ingresa tu nombre!";
     }
     ?>
-		<form action="index.php" method="post" id="nombre_usuario">
-			<h1><?php echo $mensaje ?></h1>
-			<fieldset>
-				<p>
-					<label>
-						Tu nombre
-						<input class="inputName" type="text" name="nombre_usuario" size="25" />
-					</label>
-				</p>
-				<div class="submitContainer">
-					<input class="submit" type="submit" value="Enviar" />
-				</div>
-			</fieldset>
-		</form>
+        <div class= "formulario">
+            <form action="index.php" method="post" id="nombre_usuario">
+                <h1><?php echo $mensaje ?></h1>
+                <fieldset>
+                    <p>
+                        <label>
+                            <input class="inputName" type="text" name="nombre_usuario" size="50" />
+                        </label>
+                    </p>
+                    <div class="submitContainer">
+                        <input class="submit" type="submit" value="Enviar" />
+                    </div>
+                </fieldset>
+            </form>
+        </div>
 	</body>
 </html>
