@@ -20,6 +20,8 @@
                 <td><?php echo ($cat['canciones']); ?></td>
                 <tr>
                     <td colspan="5">
+                        <p><a href="FormBuscador.html">Volver al Buscador; de Canciones</a></p>
+
             <?php   }
         }
     } else {
