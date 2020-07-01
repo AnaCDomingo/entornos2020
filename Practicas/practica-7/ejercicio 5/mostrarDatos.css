@@ -1,0 +1,25 @@
+h1 {
+	display: flex;
+	justify-content: left;
+	color: coral;
+	margin-top: 0;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.titulo {
+    color:royalblue;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: underline;
+}
+
+body {
+	background-color: cornsilk;
+}
+
+.wrapper {
+    border-style: double;
+    border-width: 1px;
+    border-color: sienna;
+    padding: 1%;
+}
