@@ -1,0 +1,8 @@
+.navbar-brand {
+	font-size: 24px;
+}
+
+#currentTab {
+	text-decoration: none;
+	border-bottom: 1px solid gray;
+}
