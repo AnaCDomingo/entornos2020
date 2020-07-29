@@ -1,0 +1,31 @@
+.navbar-brand {
+	font-size: 24px;
+}
+.container-fluid {
+	height: 80vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+form {
+	border: 1px solid lightgrey;
+	padding: 10px;
+	display: flex;
+	width: 350px;
+	justify-content: center;
+	flex-direction: column;
+}
+
+#headerNavbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+#forgottenPass {
+	margin: 0 0 10px 0;
+}
+
+#forgottenPass:hover {
+	cursor: pointer;
+}

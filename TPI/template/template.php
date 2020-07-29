@@ -12,7 +12,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="col-sm-4" style="display: flex; ;align-items:center">
-            <img src="https://lh3.googleusercontent.com/proxy/CwBMP3aSHPGBn91nFc_1aNlLDtUgECHDEcHGc-l83N4qvRjBiOk8_XLbRjxOBM7XNhDO1Rr0_fFcQXBvI1z5L7_z3pjzNH9ryF05m4vZOIIYSmqa_4xrhIOs2z4a8VtQrQQlDItgrNRcadoPkw" width="50" height="50" style="margin-right:10px" alt="logo_UTN" loading="lazy">
+            <img src="../shared/logo.png" width="50" height="50" style="margin-right:10px" alt="logo_UTN" loading="lazy">
             <a class="navbar-brand" href="#">Módulos UTN</a>
         </div>
         <div class="col-sm-4" style="display: flex; justify-content:space-between">
