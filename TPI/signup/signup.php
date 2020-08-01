@@ -20,50 +20,47 @@
         <div class="col-xs-2"></div>
         <div class="col-xs-8">
             <div class="container">
-                <h2>Registrarse</h3>
-                    <hr>
-                    <form>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Nombre</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Apellido</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1">
-                                </div>
-                                <div class="form-group">
-                                    <label for="InputPassword1">Password</label>
-                                    <input type="password" class="form-control" id="InputPassword1">
-                                </div>
+                <h2>Registrarse</h2>
+                <hr>
+                <form action="Alta.php" method="POST" name="formRegistro">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleInputNombre1">Nombre</label>
+                                <input type="text" required class="form-control" id="exampleInputNombre1" name="nombre">
                             </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Legajo/DNI</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Email</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1">
-                                </div>
-                                <div class="form-group">
-                                    <label for="InputPassword1">Repetir Password</label>
-                                    <input type="password" class="form-control" id="InputPassword1">
-                                </div>
+                            <div class="form-group">
+                                <label for="exampleInputApellido1">Apellido</label>
+                                <input type="text" required class="form-control" id="exampleInputApellido1" name="apellido">
+                            </div>
+                            <div class="form-group">
+                                <label for="InputPassword1">Password</label>
+                                <input type="password" required class="form-control" id="InputPassword1" name="pass">
                             </div>
                         </div>
-                        <div class="row" id="buttonsRow">
-                            <button class="btn btn-danger">Volver</button>
-                            <button disabled type="submit" class="btn btn-primary"> Registrarse</button>
-
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleInputDni1">DNI</label>
+                                <input type="text" required class="form-control" id="exampleInputDni1" name="dni">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email</label>
+                                <input type="email" required class="form-control" id="exampleInputEmail1" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="InputPassword2">Repetir Password</label>
+                                <input type="password" class="form-control" id="InputPassword2">
+                            </div>
                         </div>
-
-                    </form>
-
+                    </div>
+                    <div class="row" id="buttonsRow">
+                        <a id="goBackButton" onclick="document.location.href='../login/login.php'" class="btn btn-danger">Volver</a>
+                        <button type="submit" class="btn btn-primary" name="formRegistro"> Registrarse</button>
+                </form>
             </div>
         </div>
-        <div class="col-xs-2"></div>
+    </div>
+    <div class="col-xs-2"></div>
     </div>
 </body>
 

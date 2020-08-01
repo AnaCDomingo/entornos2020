@@ -19,17 +19,17 @@
 
     </nav>
     <div class="container-fluid">
-        <form>
+        <form action="user-query.php" method="POST" name="loginForm">
             <div class="form-group">
                 <label for="InputEmail1">Usuario/email</label>
-                <input type="email" class="form-control" id="InputEmail1">
+                <input type="email" class="form-control" id="InputEmail1" name="email">
             </div>
             <div class="form-group">
                 <label for="InputPassword1">contraseña</label>
-                <input type="password" class="form-control" id="InputPassword1">
+                <input type="password" class="form-control" id="InputPassword1" name="pass">
             </div>
             <a class="text-muted" id="forgottenPass" href="#">¿Olvidó su contraseña?</a>
-            <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+            <button type="submit" name="loginForm" class="btn btn-primary">Iniciar sesión</button>
         </form>
     </div>
 

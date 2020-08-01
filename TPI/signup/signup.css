@@ -12,3 +12,7 @@ h2 {
 	padding: 0 15px 0 15px;
 	margin-top: 25px;
 }
+
+#goBackButton {
+	color: white;
+}
