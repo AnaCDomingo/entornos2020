@@ -25,6 +25,52 @@
             <img src="https://cdn2.iconfinder.com/data/icons/people-80/96/Picture1-512.png" width="50" height="50" alt="person_icon" loading="lazy">
         </div>
     </nav>
+    <div class="container-fluid">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8">
+            <div class="container">
+                <h2>Título</h2>
+                <hr>
+                <form>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Nombre</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Apellido</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1">
+                            </div>
+                            <div class="form-group">
+                                <label for="InputPassword1">Password</label>
+                                <input type="password" class="form-control" id="InputPassword1">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Legajo/DNI</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Email</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1">
+                            </div>
+                            <div class="form-group">
+                                <label for="InputPassword1">Repetir Password</label>
+                                <input type="password" class="form-control" id="InputPassword1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="buttonsRow">
+                        <a id="goBackButton" onclick="document.location.href='../login/login.php'" class="btn btn-danger">Volver</a>
+                        <button type="submit" class="btn btn-primary"> Registrarse</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-xs-2"></div>
     </div>
 </body>
 
