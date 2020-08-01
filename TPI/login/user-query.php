@@ -14,7 +14,9 @@ if (mysqli_num_rows($vResultado) > 0) {
     $_SESSION['nombre'] = $fila['nombre'];
     $_SESSION['tipo_usuario'] = $fila['id_tipo_usuario'];
     setcookie('nombre', $fila['nombre'], time() + (60 * 60 * 24));
-    header('Location: ../template/template.php');
+    if ($_SESSION['tipo_usuario'] == 1)  {
+        header('Location: ../dashboard-user/dashboard.php');
+    }
 } else {
     echo '<script language="javascript">';
     echo 'alert("usuario/contraseña incorrectos");
