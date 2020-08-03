@@ -32,7 +32,7 @@ $vCont = 0;
         </div>
     </nav>
     <div class="container-fluid">
-        <div class="col-xs-2" id="leftColumn">
+        <div class="col" id="leftColumn">
             <h3>Seleccione por...</h3>
             <div class="filter">
                 <p>Carrera</p>
@@ -55,45 +55,42 @@ $vCont = 0;
                 <button class="btn btn-primary" id="btnFilter">Filtrar</button>
             </div>
         </div>
-        <div class="col-xs-8" id="centerColumn">
-            <div class="pagination" style="background-color:green">hola</div>
+        <div class="col-8" id="centerColumn">
             <div class="cardsContainer" style="max-width:60vw;">
                 <?php
                 if (is_string($vPostulaciones)) {
                     echo '<h3>' . $vPostulaciones . '</h3>';
                 } else {
                     while ($row = mysqli_fetch_array($vPostulaciones)) {
-                        if ($vCont % 2 == 0 || $vCont == 0) {
+                        $vCont++;
+                        if ($vCont % 2 != 0 || $vCont == 1) {
                             echo "<div class='row'>";
                         };
-                        $vCont++;
-                        echo "<div class='card' style='width: 28vw; height:40%; margin:16px;'>
+                        echo "<div class='card' style='width: 28vw; height:25vh;margin:16px;'>
                         <div class='card-body'>
                         <h4 class='card-title'>{$row['nombre']} {$row['apellido']}</h4>
                         <h5 class='card-subtitle mb-2 text-muted'>{$row['descripcion']}</h5>
                         <div class = 'buttonContainer'>
     <button class = 'btn btn-primary'>Descargar CV</button>
-    <button class='btn'>Enviar por mail</button>
+    <button class='btn' style = 'border: 1px solid lightgrey'>Enviar por mail</button>
     </div>
   </div>
 </div>
 ";
-                        if ($vCont % 2 == 0) {
+
+                        if ($vCont % 2 == 0 || $vCont == mysqli_num_rows($vPostulaciones))
                             echo "</div>";
-                        }
                     }
-                    // <p>{$row['puesto']}</p>";
                 }
 
                 ?>
             </div>
         </div>
-    </div>
 
 
-    <div class="col-xs-2" id="rightColumn">
-        <button class="btn btn-primary" id="meritOrder"> Registrar nueva orden de merito</button>
-    </div>
+        <div class="col" id="rightColumn">
+            <button class="btn btn-primary" id="meritOrder"> Registrar nueva orden de merito</button>
+        </div>
     </div>
 </body>
 

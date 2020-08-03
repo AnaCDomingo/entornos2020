@@ -3,7 +3,10 @@
 function getList()
 {
     include('../conexion.php');
-    $vSql = ("SELECT usu.nombre, usu.apellido, mat.descripcion FROM postulaciones pos INNER JOIN vacantes vac On pos.id_vacante = pos.id_vacante INNER JOIN materias mat on mat.id_materia = vac.id_materia INNER JOIN usuarios usu on usu.id_usuario = pos.id_usuario
+    $vSql = ("SELECT usu.nombre, usu.apellido, mat.descripcion FROM postulaciones pos 
+    INNER JOIN vacantes vac On pos.id_vacante = pos.id_vacante INNER JOIN
+     materias mat on mat.id_materia = vac.id_materia INNER JOIN usuarios usu on usu.id_usuario = pos.id_usuario 
+     LIMIT 4
     ");
     $vResultado = mysqli_query($link, $vSql);
     if (mysqli_num_rows($vResultado) > 0) {
