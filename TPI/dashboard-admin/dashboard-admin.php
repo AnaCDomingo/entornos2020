@@ -1,6 +1,10 @@
 <?php
 include_once('./get-postulaciones.php');
-$vPostulaciones = getList();
+if (isset($_POST['palabra'])) {
+    $vPostulaciones = getFilteredList($_POST['palabra']);
+} else {
+    $vPostulaciones = getList();
+}
 $vCont = 0;
 ?>
 
@@ -33,26 +37,28 @@ $vCont = 0;
     </nav>
     <div class="container-fluid">
         <div class="col" id="leftColumn">
-            <h3>Seleccione por...</h3>
             <div class="filter">
-                <p>Carrera</p>
-                <?php
-                include("../conexion.php");
-                $vSql = ("SELECT * FROM carreras");
-                $vResultado = mysqli_query($link, $vSql);
-                echo ("<select name='carreras'>");
-                echo ("<option size =30 ></option>");
-                while ($row = mysqli_fetch_array($vResultado)) {
-                    $rows[] = $row;
-                }
-                foreach ($rows as $row) {
-                    print "<option value='" . $row['descripcion'] . "'>" . $row['descripcion'] . "</option>";
-                }
-                echo "</select>";
-                mysqli_free_result($vResultado);
-                mysqli_close($link);
-                ?>
-                <button class="btn btn-primary" id="btnFilter">Filtrar</button>
+                <div class="row">
+                    <h5 id="searchText">Buscar</h5>
+                </div>
+                <div class="row">
+                    <form action="dashboard-admin.php" method="POST" name="busqueda">
+                        <input type="text" class="form-control" name="palabra" />
+                        <div class="buttonsRow">
+                            <button type="submit" id="searchButton" class="btn btn-primary">Buscar</button>
+                            <?php if ($_POST['palabra']) {
+                            ?>
+                                <form action="dashboard-admin.php">
+                                    <button type="submit" id="goBackButton" class="btn btn-primary">Volver</button>
+                                </form>
+                            <?php
+                            }
+                            ?>
+                        </div>
+
+                    </form>
+                </div>
+
             </div>
         </div>
         <div class="col-8" id="centerColumn">

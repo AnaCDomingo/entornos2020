@@ -14,7 +14,6 @@ h4,
 h5 {
 	display: flex;
 	justify-content: center;
-	padding: 3px;
 }
 
 p {
@@ -37,10 +36,21 @@ select {
 .btn {
 	width: 45%;
 }
+
+.buttonsRow {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
+}
+
 #btnFilter {
 	width: 100px;
 }
 
+#searchText {
+	display: flex;
+	justify-content: flex-start;
+}
 #meritOrder {
 	width: 150px;
 }
@@ -56,6 +66,7 @@ select {
 
 #rightColumn {
 	width: 15vw;
+	height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
