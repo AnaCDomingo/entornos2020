@@ -1,11 +1,21 @@
 <?php
 include_once('./get-postulaciones.php');
-if (isset($_POST['palabra'])) {
+
+if (isset($_POST['palabra']) && !empty($_POST['palabra'])) {
     $vPostulaciones = getFilteredList($_POST['palabra']);
 } else {
-    $vPostulaciones = getList();
+    $queries = array();
+    parse_str($_SERVER['QUERY_STRING'], $queries);
+    if (empty($queries)) {
+        $vPostulaciones = getList(0);
+        $vCurrentPage = 1;
+    } else {
+        $vPostulaciones = getList($queries['offset']);
+        $vCurrentPage = intval($queries['offset']) / 4 + 1;
+    }
 }
 $vCont = 0;
+
 ?>
 
 
@@ -26,9 +36,8 @@ $vCont = 0;
             <a class="navbar-brand" href="#">Módulos UTN</a>
         </div>
         <div class="col-sm-4" style="display: flex; justify-content:space-between">
-            <a class="navbar-brand" href="#" id="currentTab">Solicitudes</a>
-            <a class="navbar-brand" href="#" 1>Vacantes</a>
-
+            <a class="navbar-brand" href="./dashboard-admin.php" id="currentTab">Solicitudes</a>
+            <a class="navbar-brand" href="../vacantes/vacantes.php">Vacantes</a>
         </div>
         <div class="col-sm-4" style="display: flex; justify-content:flex-end;align-items:center">
             <a class="navbar-brand" href="#">Nombre</a>
@@ -46,7 +55,7 @@ $vCont = 0;
                         <input type="text" class="form-control" name="palabra" />
                         <div class="buttonsRow">
                             <button type="submit" id="searchButton" class="btn btn-primary">Buscar</button>
-                            <?php if ($_POST['palabra']) {
+                            <?php if (isset($_POST['palabra']) && !empty($_POST['palabra'])) {
                             ?>
                                 <form action="dashboard-admin.php">
                                     <button type="submit" id="goBackButton" class="btn btn-primary">Volver</button>
@@ -87,15 +96,35 @@ $vCont = 0;
                         if ($vCont % 2 == 0 || $vCont == mysqli_num_rows($vPostulaciones))
                             echo "</div>";
                     }
+                    mysqli_free_result($vPostulaciones);
                 }
 
                 ?>
             </div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="dashboard-admin.php?<?php $vPreviousPage = ($vCurrentPage - 2) * 4;
+                                                                        echo "offset=$vPreviousPage"; ?>" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="dashboard-admin.php">1</a></li>
+                    <li class="page-item"><a class="page-link" href="dashboard-admin.php?<?php echo "offset=4" ?>">2</a></li>
+                    <li class="page-item"><a class="page-link" href="dashboard-admin.php?<?php echo "offset=8" ?>">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="dashboard-admin.php?<?php $vNextPage = ($vCurrentPage) * 4;;
+                                                                        echo "offset=$vNextPage"; ?>" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
 
 
         <div class="col" id="rightColumn">
-            <button class="btn btn-primary" id="meritOrder"> Registrar nueva orden de merito</button>
+            <a href="../registra-orden/registra-orden.php" class="btn btn-primary" id="meritOrder"> Registrar nueva orden de merito</a>
         </div>
     </div>
 </body>
