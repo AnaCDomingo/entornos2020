@@ -1,6 +1,5 @@
 <?php
 
-use function PHPSTORM_META\type;
 
 include("../conexion.php");
 $vEmail = $_POST['email'];
@@ -14,8 +13,13 @@ if (mysqli_num_rows($vResultado) > 0) {
     $_SESSION['nombre'] = $fila['nombre'];
     $_SESSION['tipo_usuario'] = $fila['id_tipo_usuario'];
     setcookie('nombre', $fila['nombre'], time() + (60 * 60 * 24));
-    if ($_SESSION['tipo_usuario'] == 1)  {
-        header('Location: ../dashboard-user/dashboard.php');
+    switch ($_SESSION['tipo_usuario']) {
+        case 1:
+            header('Location: ../dashboard-user/dashboard.php');
+            break;
+        case 2:
+            header('Location: ../dashboard-admin/dashboard-admin.php');
+            break;
     }
 } else {
     echo '<script language="javascript">';
