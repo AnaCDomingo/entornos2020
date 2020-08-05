@@ -22,6 +22,7 @@ if (mysqli_num_rows($vResultado) == 1) {
     $apellido = $fila['apellido'];
     $dni = $fila['dni'];
     $email = $fila['email'];
+    $nameUser=$_SESSION['nombre'];
 }}
 ?>
 
@@ -37,7 +38,7 @@ if (mysqli_num_rows($vResultado) == 1) {
 
         </div>
         <div class="col-sm-4" style="display: flex; justify-content:flex-end;align-items:center">
-            <a class="navbar-brand" href="#" id="currentTab">Nombre</a>
+            <a class="navbar-brand" href="#" id="currentTab"><?php echo $nameUser ?></a>
             <img src="https://cdn2.iconfinder.com/data/icons/people-80/96/Picture1-512.png" width="50" height="50" alt="person_icon" loading="lazy">
         </div>
     </nav>
@@ -45,11 +46,6 @@ if (mysqli_num_rows($vResultado) == 1) {
         <div class="col-xs-2"></div>
         <div class="col-xs-8">
             <div class="container">
-            <?php  
-                if(isset($_COOKIE['nombre'])){
-                    $nameUser=$_COOKIE['nombre'];
-                }
-            ?>
                 <h2 id="nameUser" name="nameUser"  ><?php echo $nameUser ?> </h2>
                 <hr>
                 <form action="alterUser-query.php" method="POST" name="configurationForm">
@@ -57,24 +53,24 @@ if (mysqli_num_rows($vResultado) == 1) {
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nombre</label>
-                                <input type="text" class="form-control" id="nombreUser" value="<?php echo $nombre; ?>">
+                                <input type="text" class="form-control" id="nombreUser" name="nombreUser" value="<?php echo $nombre; ?>">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Apellido</label>
-                                <input type="text" class="form-control" id="apellidoUser" value="<?php echo $apellido ?>">
+                                <input type="text" class="form-control" id="apellidoUser" name="apellidoUser" value="<?php echo $apellido ?>">
                             </div>
                             <div class="form-group">
-                                <input type="submit" value="Cambiar contraseña" name="changePassUserButton" id="changePassUserButton"   class="btn btn-danger">
+                                <a onclick="document.location.href='./changePass-u.php'" name="changePassUserButton" id="changePassUserButton" class="btn btn-danger">Cambiar contraseña</a>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Legajo/DNI</label>
-                                <input type="number" class="form-control" id="legajoUser" value="<?php echo $dni ?>">
+                                <input type="number" class="form-control" id="legajoUser" name="legajoUser" value="<?php echo $dni ?>">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Email</label>
-                                <input type="email" class="form-control" id="mailUser" value="<?php echo $email ?>">
+                                <input type="email" class="form-control" id="mailUser" name="mailUser" value="<?php echo $email ?>">
                             </div>
                             <div class="form-group">
                                 <input type="submit"value="Eliminar cuenta"name="deleteUserButton" id="deleteUserButton"   class="btn btn-danger">
@@ -82,7 +78,7 @@ if (mysqli_num_rows($vResultado) == 1) {
                         </div>
                     </div>
                     <div class="row" id="buttonsRow">
-                        <a id="goBackButton" name="goBackButton" onclick="document.location.href='../login/login.php'" class="btn btn-danger">Volver</a>
+                        <a id="goBackButton" name="goBackButton" onclick="document.location.href='../dashboard-user/dashboard.php'" class="btn btn-danger">Volver</a>
                         <input type="submit" value="Aceptar" name="configurationForm" id="configurationForm" class="btn btn-primary">
                 </form>
             </div>
