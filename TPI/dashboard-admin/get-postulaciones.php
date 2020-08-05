@@ -33,7 +33,7 @@ function getFilteredList($vPal)
     if (mysqli_num_rows($vResultado) > 0) {
         return $vResultado;
     } else {
-        return 'No se han encontrado postulaciones activas.';
+        return 'No se han encontrado postulaciones.';
     }
 
     mysqli_close($link);

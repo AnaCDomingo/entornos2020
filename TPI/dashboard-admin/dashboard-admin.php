@@ -1,10 +1,13 @@
 <?php
 include_once('./get-postulaciones.php');
 session_start();
+//Lógica de sesiones
 $vNombre = $_SESSION['nombre'];
+//Lógica del filtrado
 if (isset($_POST['palabra']) && !empty($_POST['palabra'])) {
     $vPostulaciones = getFilteredList($_POST['palabra']);
 } else {
+    //Tomo los query params para poder realizar el paginado
     $queries = array();
     parse_str($_SERVER['QUERY_STRING'], $queries);
     if (empty($queries)) {
@@ -72,6 +75,7 @@ $vCont = 0;
             </div>
         </div>
         <div class="col-8" id="centerColumn">
+            <!-- logica de tarjetas (funcional y cliente) -->
             <div class="cardsContainer" style="max-width:60vw;">
                 <?php
                 if (is_string($vPostulaciones)) {
@@ -102,6 +106,7 @@ $vCont = 0;
 
                 ?>
             </div>
+            <!-- paginación -->
             <nav class="paginationBottom" aria-label="Page navigation">
                 <ul class="pagination">
                     <li class="page-item">
