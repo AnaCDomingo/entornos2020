@@ -1,6 +1,7 @@
 <?php
 include_once('./get-postulaciones.php');
-
+session_start();
+$vNombre = $_SESSION['nombre'];
 if (isset($_POST['palabra']) && !empty($_POST['palabra'])) {
     $vPostulaciones = getFilteredList($_POST['palabra']);
 } else {
@@ -40,7 +41,7 @@ $vCont = 0;
             <a class="navbar-brand" href="../vacantes/vacantes.php">Vacantes</a>
         </div>
         <div class="col-sm-4" style="display: flex; justify-content:flex-end;align-items:center">
-            <a class="navbar-brand" href="#">Nombre</a>
+            <a class="navbar-brand" href="#"><?php echo $vNombre; ?></a>
             <img src="https://cdn2.iconfinder.com/data/icons/people-80/96/Picture1-512.png" width="50" height="50" alt="person_icon" loading="lazy">
         </div>
     </nav>
@@ -74,7 +75,7 @@ $vCont = 0;
             <div class="cardsContainer" style="max-width:60vw;">
                 <?php
                 if (is_string($vPostulaciones)) {
-                    echo '<h3>' . $vPostulaciones . '</h3>';
+                    echo '<h3 class="not-found-message">' . $vPostulaciones . '</h3>';
                 } else {
                     while ($row = mysqli_fetch_array($vPostulaciones)) {
                         $vCont++;
@@ -101,7 +102,7 @@ $vCont = 0;
 
                 ?>
             </div>
-            <nav aria-label="Page navigation example">
+            <nav class="paginationBottom" aria-label="Page navigation">
                 <ul class="pagination">
                     <li class="page-item">
                         <a class="page-link" href="dashboard-admin.php?<?php $vPreviousPage = ($vCurrentPage - 2) * 4;
