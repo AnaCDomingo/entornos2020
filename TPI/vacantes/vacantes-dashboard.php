@@ -83,12 +83,13 @@ $vCont = 0;
                 } else {
                     while ($row = mysqli_fetch_array($vVacantes)) {
                         $vCont++;
+                        // $vId = $row['id'];
                         if ($vCont % 2 != 0 || $vCont == 1) {
                             echo "<div class='row'>";
                         };
-                        echo "<div class='card' style='width: 28vw; height:35vh;margin:16px;'>
+                        echo "<div class='card'>
                         <div class = 'card-title' id = 'deleteButtonContainer'>
-                        <a class = 'btn btn-danger' id = 'deleteButton'><img id='trashImage' alt = 'cesto_eliminar' src = '../shared/trash.png'></a>
+                        <a href = 'prompt-confirm.php?id={$row['id']}' class = 'btn btn-danger' id = 'deleteButton'><img id='trashImage' alt = 'cesto_eliminar' src = '../shared/trash.png'></a>
                         </div>
                         <div class='card-body'>
                         <h4>{$row['materia']}</h4>
