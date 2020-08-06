@@ -28,7 +28,6 @@
                 <label for="InputPassword1">contraseña</label>
                 <input type="password" class="form-control" id="InputPassword1" name="pass">
             </div>
-            <a class="text-muted" id="forgottenPass" href="#">¿Olvidó su contraseña?</a>
             <button type="submit" name="loginForm" class="btn btn-primary">Iniciar sesión</button>
         </form>
     </div>
