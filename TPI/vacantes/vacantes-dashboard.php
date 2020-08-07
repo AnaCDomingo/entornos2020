@@ -96,7 +96,7 @@ $vCont = 0;
                         <h5 class='card-subtitle mb-2 text-muted'>{$row['descripcion']}</h5>
                         <h6 class='card-subtitle mb-2 text-muted'>{$row['puesto']}</h6>
                         <div class = 'buttonContainer'>
-    <a class = 'btn btn-primary' id= 'modifyButton'>Modificar</a>
+    <a href='../modificar-vacante/modificar-vacante.php?id={$row['id']}' class = 'btn btn-primary' id= 'modifyButton'>Modificar</a>
     </div>
   </div>
 </div>

@@ -3,7 +3,7 @@ include('../conexion.php');
 $queries = array();
 parse_str($_SERVER['QUERY_STRING'], $queries);
 if (empty($queries)) {
-    header('Location: ../login/login.php');
+    header('Location: ./vacantes-dashboard.php');
 } else {
     $vVacID = $queries['id'];
 }
