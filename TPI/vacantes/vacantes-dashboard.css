@@ -1,0 +1,119 @@
+.navbar-brand {
+	font-size: 24px;
+}
+
+.card {
+	width: 28vw;
+	height: 32vh;
+	margin: 16px;
+}
+
+.container-fluid {
+	display: flex;
+	width: 100vw;
+}
+h3 {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	margin-bottom: 25px;
+}
+
+h4,
+h5,
+h6 {
+	display: flex;
+	justify-content: flex-start;
+}
+
+p {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	margin: 0;
+}
+select {
+	margin-bottom: 10px;
+}
+
+.cardsContainer {
+	display: flex;
+	height: 60vh;
+}
+
+.buttonContainer {
+	display: flex;
+	justify-content: center;
+	margin-top: 15px;
+}
+
+.btn {
+	width: 45%;
+	color: white;
+}
+
+.buttonsRow {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
+}
+
+.not-found-message {
+	display: flex;
+	align-items: center;
+}
+
+.paginationBottom {
+	display: flex;
+	justify-content: center;
+}
+
+#deleteButton {
+	width: 20%;
+	height: 100%;
+}
+
+#btnFilter {
+	width: 100px;
+}
+
+#searchText {
+	display: flex;
+	justify-content: flex-start;
+}
+#meritOrder {
+	width: 150px;
+}
+#currentTab {
+	text-decoration: none;
+	border-bottom: 1px solid gray;
+}
+
+#leftColumn {
+	padding: 20px;
+	width: 20vw;
+}
+
+#rightColumn {
+	width: 15vw;
+	height: 90vh;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	margin: auto;
+}
+
+#centerColumn {
+	width: 60vw;
+}
+
+#modifyButton {
+	color: white;
+}
+
+#deleteButtonContainer {
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 0;
+}
+
+#trashImage {
+	width: 25px;
+	height: 28px;
+}
