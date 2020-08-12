@@ -13,6 +13,8 @@
         <input type="file" name="cvPrueba" id="cvPrueba1">
         <button class="btn-primary" type="submit" name="cvForm">Subir</button>
         <a class="btn btn-primary" style="color:white" href="testupload/example.pdf" download="inteligencia">Descargar</a>
+        <a class="btn btn-primary" style="color:white" href="enviar-cv.php">Enviar mail</a>
+
     </form>
 </body>
 
