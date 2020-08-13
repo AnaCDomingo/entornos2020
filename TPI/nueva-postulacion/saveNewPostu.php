@@ -1,11 +1,8 @@
 <?php
-include('../conexion.php');
-parse_str($_SERVER['QUERY_STRING'], $queries);
-if (empty($queries)) {
-    echo 'vacio';
-} else {
-    echo 'entro';
-
+include("../conexion.php");
+session_start();
+if (isset(($_POST['saveNewPostu']))){
+echo 'blabla';
 }
 
 ?>
