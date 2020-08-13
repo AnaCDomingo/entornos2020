@@ -73,13 +73,13 @@ if (mysqli_num_rows($vResultado) == 1) {
                                 <input type="email" class="form-control" id="mailUser" name="mailUser" value="<?php echo $email ?>">
                             </div>
                             <div class="form-group">
-                                <input type="submit"value="Eliminar cuenta"name="deleteUserButton" id="deleteUserButton"   class="btn btn-danger">
+                                <input type="submit"value="Eliminar cuenta"name="deleteUserButton" id="deleteUserButton" onClick= "return confirm('Está seguro que quiere eliminar la cuenta?')"   class="btn btn-danger">
                             </div>
                         </div>
                     </div>
                     <div class="row" id="buttonsRow">
                         <a id="goBackButton" name="goBackButton" onclick="document.location.href='../dashboard-user/dashboard.php'" class="btn btn-danger">Volver</a>
-                        <input type="submit" value="Aceptar" name="configurationForm" id="configurationForm" class="btn btn-primary">
+                        <input type="submit" value="Aceptar" name="configurationForm" id="configurationForm" onClick="return confirm('Está seguro que desea modificar los datos?')" class="btn btn-primary">
                 </form>
             </div>
 
