@@ -45,6 +45,7 @@ select {
 
 .btn {
 	width: 45%;
+	font-size: 13px;
 	color: white;
 }
 
@@ -103,8 +104,10 @@ select {
 	width: 60vw;
 }
 
-#modifyButton {
+#modifyButton,
+#newOrderButton {
 	color: white;
+	margin-right: 10px;
 }
 
 #deleteButtonContainer {
