@@ -1,6 +1,5 @@
 <?php
 include_once('./get-vacantes.php');
-session_start();
 //Lógica de sesiones
 $vNombre = $_SESSION['nombre'];
 //Tomo los query params para poder realizar el paginado
@@ -36,7 +35,7 @@ if (empty($queries)) {
         </div>
         <div class="col-sm-4" style="display: flex; justify-content:flex-end;align-items:center">
             <a class="navbar-brand" href="#"><?php echo $vNombre; ?></a>
-            <img src="https://cdn2.iconfinder.com/data/icons/people-80/96/Picture1-512.png" width="50" height="50" alt="person_icon" loading="lazy">
+            <img src="../shared/person.png" width="50" height="50" alt="person_icon" loading="lazy">
         </div>
     </nav>
     <div class="container-fluid">

@@ -1,5 +1,9 @@
 <?php
 include('../conexion.php');
+$vTipo = $_SESSION['tipo_usuario'];
+if ($vTipo != 2) {
+    header('Location: ../login/login.php');
+}
 $queries = array();
 parse_str($_SERVER['QUERY_STRING'], $queries);
 if (empty($queries)) {
