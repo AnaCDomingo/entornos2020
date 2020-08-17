@@ -3,8 +3,8 @@
 function getList($vOffset)
 {
     include('../conexion.php');
-    $vSql = ("SELECT DISTINCT usu.nombre, usu.apellido, mat.descripcion FROM postulaciones pos 
-    INNER JOIN vacantes vac On pos.id_vacante = pos.id_vacante INNER JOIN
+    $vSql = ("SELECT DISTINCT pos.id_postulacion, usu.nombre, usu.apellido, mat.descripcion FROM postulaciones pos 
+    INNER JOIN vacantes vac On pos.id_vacante = vac.id_vacante INNER JOIN
      materias mat on mat.id_materia = vac.id_materia INNER JOIN usuarios usu on usu.id_usuario = pos.id_usuario
      LIMIT 4 OFFSET $vOffset
      
