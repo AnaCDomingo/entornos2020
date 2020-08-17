@@ -1,6 +1,6 @@
 <?php
-use function PHPSTORM_META\type;
-function getList() {
+function getList()
+{
 
     include("../conexion.php");
     $id_usuario = $_SESSION['id_usuario'];
