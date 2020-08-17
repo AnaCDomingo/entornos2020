@@ -53,13 +53,13 @@ $vNombre = $_SESSION['nombre'];
                 <h2>Cargar órden de mérito</h2>
                 <hr>
                 <h4>Seleccione el archivo...</h4>
-                <div class="row">
-                    <form action="./upload-om.php?id=<?php echo $vVacID ?>&mat=<?php echo $vVacMat ?>&pue=<?php echo $vVacPuesto ?>" method="POST" name="omForm" enctype="multipart/form-data">
+                <div class="row" id="middleRow">
+                    <form class="form-group" action="./upload-om.php?id=<?php echo $vVacID ?>&mat=<?php echo $vVacMat ?>&pue=<?php echo $vVacPuesto ?>" method="POST" name="omForm" enctype="multipart/form-data">
                         <input type="file" required name="omUpload" id="omUpload1">
                 </div>
-                <div class="row">
+                <div class="row" id="buttonRow">
 
-                    <button class="btn-primary" type="submit" name="omForm">Subir</button>
+                    <button class=" btn btn-primary" type="submit" name="omForm">Subir</button>
                 </div>
                 </form>
             </div>
