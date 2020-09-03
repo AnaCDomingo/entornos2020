@@ -13,6 +13,24 @@
         include("../conexion.php");
         session_start();
         $nameUser = $_SESSION['nombre'];
+        $vTipo = $_SESSION['tipo_usuario'];
+        parse_str($_SERVER['QUERY_STRING'], $queries);
+        /*if (empty($queries)) {
+            header('Location: ../vacantes/vacantes-dashboard.php');
+        } else {*/
+            $vVacID = $queries['id'];
+        //}
+        $vSql = ("SELECT  vac.id_vacante as id, vac.puesto as puesto, mat.descripcion as materia, car.descripcion as carrera,
+        vac.requisitos_descripcion as requi FROM vacantes vac
+        INNER JOIN materias mat ON mat.id_materia = vac.id_materia 
+        INNER JOIN carreras car ON car.id_carrera = vac.id_carrera 
+        WHERE id_vacante = '$vVacID' AND vac.id_estado<>2");
+        $vResultado = mysqli_query($link, $vSql) or die(mysqli_error($link));
+        $fila = mysqli_fetch_array($vResultado);
+        $puesto = $fila['puesto'];
+        $materia = $fila['materia'];
+        $carrera = $fila['carrera'];
+        $requi = $fila['requi'];    
     ?>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -41,21 +59,21 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Carrera</label>
-                                <input type="text" value="carrera" class="form-control" id="carrera" name="carrera" readonly>
+                                <input type="text" value="<?php echo $carrera ?>" class="form-control" id="carrera" name="carrera" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Puesto</label>
-                                <input type="text" class="form-control" id="puesto" name="puesto" value="puesto" readonly>
+                                <input type="text" class="form-control" id="puesto" name="puesto" value="<?php echo $puesto ?>" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="InputPassword1">Descripcion/Requisitos</label>
-                                <textarea required rows="10" class="form-control" id="descReq" name="descReq" value="descReq" readonly></textarea>
+                                <textarea required rows="10" class="form-control" id="descReq" name="descReq" readonly><?php echo $requi ?></textarea>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Materia</label>
-                                <input type="text" class="form-control" id="materia" name="materia" value="materia" readonly>
+                                <input type="text" class="form-control" id="materia" name="materia" value="<?php echo $materia ?>" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Adjuntar CV</label>
@@ -66,7 +84,7 @@
                     </div>
                     <div class="row" id="buttonsRow">
                         <a id="goBackButton" onclick="document.location.href='../dashboard-user/dashboard.php'" class="btn btn-danger">Volver</a>
-                        <button type="submit" name="saveNewPostu" id="saveNewPostu" class="btn btn-primary" disable="disable"> Postularse</button>
+                        <button type="submit" name="saveNewPostuButton" id="saveNewPostuButton" class="btn btn-primary"> Postularse</button>
                 </form>
             </div>
 
