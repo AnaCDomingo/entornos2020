@@ -2,29 +2,15 @@
 include("../conexion.php");
 session_start();
 if (isset(($_POST['deleteUserButton']))){
-    //preguntar si quiere eliminar
-    ?>
-    <script type='text/javascript'>
-    var r=confirm('Está seguro que quiere eliminar el usuario?');
-    if (r==true){
-        <?php
-                if (isset(($_SESSION['id_usuario']))) {
-                    $userId = $_SESSION['id_usuario'];
-            //cambiar id estado (boton eliminar cuenta)
-                    $vSql=("UPDATE usuarios SET id_estado = 2 WHERE id_usuario ='$userId' ");
-                    $vResultado = mysqli_query($link, $vSql) or die(mysqli_error($link));
-                    
-                };
-        ?>
-         alert('Usuario eliminado correctamente');
+    if (isset(($_SESSION['id_usuario']))) {
+        $userId = $_SESSION['id_usuario'];
+    //cambiar id estado (boton eliminar cuenta)
+        $vSql=("UPDATE usuarios SET id_estado = 2 WHERE id_usuario ='$userId' ");
+        $vResultado = mysqli_query($link, $vSql) or die(mysqli_error($link));
 
-    }
-    else{
-        window.location.href = "./configuration-u.php";
-        }
-    </script>
-  <?php
-} 
+
+};
+}
 elseif (isset(($_POST['configurationForm']))){
     //cambiar campos (boton aceptar)
     if (isset(($_SESSION['id_usuario']))){
@@ -38,6 +24,7 @@ elseif (isset(($_POST['configurationForm']))){
             $vResultado1 = mysqli_query($link, $vSql1) or die(mysqli_error($link));  
 }
 };
-
-/*header('Location: ../dashboard-user/dashboard.php');*/
 ?>
+        <script>
+                window.location.href = "../login/login.php"
+        </script> 

@@ -1,6 +1,9 @@
 <?php
 include_once('./get-vacantes.php');
-session_start();
+$vTipo = $_SESSION['tipo_usuario'];
+if ($vTipo != 2) {
+    header('Location: ../login/login.php');
+}
 //Lógica de sesiones
 $vNombre = $_SESSION['nombre'];
 //Lógica del filtrado

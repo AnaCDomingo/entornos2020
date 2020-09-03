@@ -1,6 +1,10 @@
 <?php
 include_once('./get-postulaciones.php');
 session_start();
+$vTipo = $_SESSION['tipo_usuario'];
+if ($vTipo != 2) {
+    header('Location: ../login/login.php');
+}
 //Lógica de sesiones
 $vNombre = $_SESSION['nombre'];
 //Lógica del filtrado
@@ -45,7 +49,7 @@ $vCont = 0;
         </div>
         <div class="col-sm-4" style="display: flex; justify-content:flex-end;align-items:center">
             <a class="navbar-brand" href="#"><?php echo $vNombre; ?></a>
-            <img src="https://cdn2.iconfinder.com/data/icons/people-80/96/Picture1-512.png" width="50" height="50" alt="person_icon" loading="lazy">
+            <img src="../shared/person.png" width="50" height="50" alt="person_icon" loading="lazy">
         </div>
     </nav>
     <div class="container-fluid">
