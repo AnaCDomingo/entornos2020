@@ -11,13 +11,12 @@ if (empty($queries)) {
     $vVacMat = $queries['mat'];
     $vVacPuesto = $queries['pue'];
 }
-$vCurrentDate =  date("d-m-Y");
-$vBasename = $vVacID . '-' . $vVacMat . '-' . $vVacPuesto . '-' . $vCurrentDate . '.pdf';
+$vBasename = $vVacID . '-' . $vVacMat . '-' . $vVacPuesto . '.pdf';
 $targetfolder = "../ordenes-merito/";
 $targetfolder = $targetfolder . basename($vBasename);
 $fileType = strtolower(pathinfo($targetfolder, PATHINFO_EXTENSION));
 $uploadOK = true;
-if ($_FILES["omUpload"]["size"] > 500000) {
+if ($_FILES["omUpload"]["size"] > 5000000) {
 
     echo '<script language="javascript">';
     echo 'alert("El tamaño del archivo es superior a 5mb");
