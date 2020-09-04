@@ -16,9 +16,11 @@
         $vTipo = $_SESSION['tipo_usuario'];
         parse_str($_SERVER['QUERY_STRING'], $queries);
         /*if (empty($queries)) {
-            header('Location: ../vacantes/vacantes-dashboard.php');
+            header('Location: ../dashboard-user/dashboard-user.php');
         } else {*/
             $vVacID = $queries['id'];
+            $vVacMat = $queries['mat'];
+            $vVacPuesto = $queries['pue'];
         //}
         $vSql = ("SELECT  vac.id_vacante as id, vac.puesto as puesto, mat.descripcion as materia, car.descripcion as carrera,
         vac.requisitos_descripcion as requi FROM vacantes vac
@@ -40,11 +42,11 @@
         </div>
         <div class="col-sm-4" style="display: flex; justify-content:space-between">
             <a class="navbar-brand" href="#" id="currentTab">Vacantes</a>
-            <a class="navbar-brand" href="#" 1>Mis Postulaciones</a>
+            <a class="navbar-brand" onClick="return confirm('Podria perder el progreso si sale')" href="../dashboard-user/dashboard-user.php" 1>Mis Postulaciones</a>
 
         </div>
         <div class="col-sm-4" style="display: flex; justify-content:flex-end;align-items:center">
-            <a class="navbar-brand" href="#" id="currentTab2"><?php echo $nameUser ?></a>
+            <a class="navbar-brand" onClick="return confirm('Podria perder el progreso si sale')" href="../dashboard-user/dashboard-user.php" id="currentTab2"><?php echo $nameUser ?></a>
             <img src="https://cdn2.iconfinder.com/data/icons/people-80/96/Picture1-512.png" width="50" height="50" alt="person_icon" loading="lazy">
         </div>
     </nav>
@@ -54,7 +56,7 @@
             <div class="container">
                 <h2>Nueva Postulación</h2>
                 <hr>
-                <form action="saveNewPostu.php" method="POST" name="saveNewPostu">
+                <form class="form-group" action="saveNewPostu.php?id=<?php echo $vVacID ?>&mat=<?php echo $vVacMat ?>&pue=<?php echo $vVacPuesto ?> " method="POST" name="saveNewPostu" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
@@ -77,14 +79,14 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Adjuntar CV</label>
-                                <input type="file" name="file" id="file" class="inputfile" required  />
+                                <input type="file" name="postu" id="postu"  required  >
                             </div>
 
                         </div>
                     </div>
                     <div class="row" id="buttonsRow">
-                        <a id="goBackButton" onclick="document.location.href='../dashboard-user/dashboard.php'" class="btn btn-danger">Volver</a>
-                        <button type="submit" name="saveNewPostuButton" id="saveNewPostuButton" class="btn btn-primary"> Postularse</button>
+                        <a id="goBackButton" onClick="return confirm('Podria perder el progreso si sale')" href='../dashboard-user/dashboard-user.php' class="btn btn-danger">Volver</a>
+                        <button type="submit" name="saveNewPostuButton" id="saveNewPostuButton" onClick="return confirm('Está seguro que desea postularse a esta vacante?')" class="btn btn-primary"> Postularse</button>
                 </form>
             </div>
 
