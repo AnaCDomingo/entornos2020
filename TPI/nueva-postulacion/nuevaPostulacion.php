@@ -15,13 +15,13 @@
         $nameUser = $_SESSION['nombre'];
         $vTipo = $_SESSION['tipo_usuario'];
         parse_str($_SERVER['QUERY_STRING'], $queries);
-        /*if (empty($queries)) {
+        if (empty($queries)) {
             header('Location: ../dashboard-user/dashboard-user.php');
-        } else {*/
+        } else {
             $vVacID = $queries['id'];
             $vVacMat = $queries['mat'];
             $vVacPuesto = $queries['pue'];
-        //}
+        }
         $vSql = ("SELECT  vac.id_vacante as id, vac.puesto as puesto, mat.descripcion as materia, car.descripcion as carrera,
         vac.requisitos_descripcion as requi FROM vacantes vac
         INNER JOIN materias mat ON mat.id_materia = vac.id_materia 
@@ -46,7 +46,7 @@
 
         </div>
         <div class="col-sm-4" style="display: flex; justify-content:flex-end;align-items:center">
-            <a class="navbar-brand" onClick="return confirm('Podria perder el progreso si sale')" href="../dashboard-user/dashboard-user.php" id="currentTab2"><?php echo $nameUser ?></a>
+            <a class="navbar-brand" onClick="return confirm('Podria perder el progreso si sale')" href="../configuration-user/configuration-u.php" id="currentTab2"><?php echo $nameUser ?></a>
             <img src="https://cdn2.iconfinder.com/data/icons/people-80/96/Picture1-512.png" width="50" height="50" alt="person_icon" loading="lazy">
         </div>
     </nav>
@@ -79,7 +79,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Adjuntar CV</label>
-                                <input type="file" name="postu" id="postu"  required  >
+                                <input type="file" name = "postu" id = "postu"  required  >
                             </div>
 
                         </div>
