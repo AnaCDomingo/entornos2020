@@ -3,7 +3,7 @@
 //Sesiones
 session_start();
 $esta_logueado = false;
-if (isset($_SESSION['id_usuario']))  {
+if (isset($_SESSION['id_usuario'])) {
     $nombre = $_SESSION['nombre'];
     $esta_logueado = true;
 }
@@ -40,41 +40,41 @@ $cont = 0;
 
 <body>
     <?php
-        if ($esta_logueado) { ?>
-        
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                  <div class="col-sm-4" style="display: flex; ;align-items:center">
-                     <img src="../shared/logo.png" width="50" height="50" style="margin-right:10px" alt="logo_UTN" loading="lazy">
-                    <a class="navbar-brand" href="#">Módulos UTN</a>
-                    </div>
-                    <div class="col-sm-4" style="display: flex; justify-content:space-between">
-                        <a class="navbar-brand" href="#" id="currentTab">Vacantes</a>
-                        <a class="navbar-brand" href="">Mis Postulaciones</a>
-                    </div>
-                    <div class="col-sm-4" style="display: flex; justify-content:flex-end;align-items:center">
-                        <a class="navbar-brand" href="#"><?php echo $nombre ?></a>
-                        <img src="https://cdn2.iconfinder.com/data/icons/people-80/96/Picture1-512.png" width="50" height="50" alt="person_icon" loading="lazy">
-                    </div>
-                </nav> 
-       <?php } else { ?>
-            
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <div class="col-sm-4" style="display: flex; ;align-items:center">
-                    <img src="../shared/logo.png" width="50" height="50" style="margin-right:10px" alt="logo_UTN" loading="lazy">
-                    <a class="navbar-brand" href="#">Módulos UTN</a>
-                    </div>
-                    <div class="col-sm-4" style="display: flex; justify-content:space-between">
-                        <a class="navbar-brand" href="#" id="currentTab">Vacantes</a>
-                        <a class="navbar-brand" href="../login/login.php">Mis Postulaciones</a>
-                    </div>
-                    <div class="col-sm-4" style="display: flex; justify-content:flex-end;align-items:center">
-                        <a class="navbar-brand" href="../signup/signup.php">Registrarse</a>
-                        <a class="navbar-brand" href="../login/login.php">Iniciar Sesión</a>
-                    </div>
-                </nav> 
-            <?php
-        } 
-        ?>
+    if ($esta_logueado) { ?>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="col-sm-4" style="display: flex; ;align-items:center">
+                <img src="../shared/logo.png" width="50" height="50" style="margin-right:10px" alt="logo_UTN" loading="lazy">
+                <a class="navbar-brand" href="#">Módulos UTN</a>
+            </div>
+            <div class="col-sm-4" style="display: flex; justify-content:space-between">
+                <a class="navbar-brand" href="#" id="currentTab">Vacantes</a>
+                <a class="navbar-brand" href="">Mis Postulaciones</a>
+            </div>
+            <div class="col-sm-4" style="display: flex; justify-content:flex-end;align-items:center">
+                <a class="navbar-brand" href="#"><?php echo $nombre ?></a>
+                <img src="https://cdn2.iconfinder.com/data/icons/people-80/96/Picture1-512.png" width="50" height="50" alt="person_icon" loading="lazy">
+            </div>
+        </nav>
+    <?php } else { ?>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="col-sm-4" style="display: flex; ;align-items:center">
+                <img src="../shared/logo.png" width="50" height="50" style="margin-right:10px" alt="logo_UTN" loading="lazy">
+                <a class="navbar-brand" href="#">Módulos UTN</a>
+            </div>
+            <div class="col-sm-4" style="display: flex; justify-content:space-between">
+                <a class="navbar-brand" href="#" id="currentTab">Vacantes</a>
+                <a class="navbar-brand" href="../login/login.php">Mis Postulaciones</a>
+            </div>
+            <div class="col-sm-4" style="display: flex; justify-content:flex-end;align-items:center">
+                <a class="navbar-brand" href="../signup/signup.php">Registrarse</a>
+                <a class="navbar-brand" href="../login/login.php">Iniciar Sesión</a>
+            </div>
+        </nav>
+    <?php
+    }
+    ?>
     <div class="container-fluid">
         <div class="col" id="leftColumn">
             <div class="filter">
@@ -119,7 +119,8 @@ $cont = 0;
                                 <h5 class='card-subtitle mb-2 text-muted'>{$row['carrera']}</h5>
                                 <h5 class='card-subtitle mb-2 text-muted'>{$row['puesto']}</h5>
                                 <div class = 'buttonContainer'>
-                                    <a href='../nueva-postulacion/nueva-postulacion?id={$row['id_vacante']}.php' class='btn btn-primary'>Postularse</a>
+                                    <a href='../nueva-postulacion/nuevaPostulacion.php?id={$row['id_vacante']}&pue={$row['puesto']}
+                                    &mat={$row['materia']}' class='btn btn-primary'>Postularse</a>
                                 </div>
                             </div>
                         </div>
@@ -138,7 +139,7 @@ $cont = 0;
                 <ul class="pagination">
                     <li class="page-item">
                         <a class="page-link" href="dashboard-user.php?<?php $vPreviousPage = ($vCurrentPage - 2) * 4;
-                            echo "offset=$vPreviousPage"; ?>" aria-label="Previous">
+                                                                        echo "offset=$vPreviousPage"; ?>" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
@@ -147,7 +148,7 @@ $cont = 0;
                     <li class="page-item"><a class="page-link" href="dashboard-user.php?<?php echo "offset=8" ?>">3</a></li>
                     <li class="page-item">
                         <a class="page-link" href="dashboard-user.php?<?php $vNextPage = ($vCurrentPage) * 4;;
-                                echo "offset=$vNextPage"; ?>" aria-label="Next">
+                                                                        echo "offset=$vNextPage"; ?>" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
