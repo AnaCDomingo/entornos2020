@@ -105,6 +105,14 @@ select {
 
 #modifyButton {
 	color: white;
+	margin-right: 13px;
+	font-size: 14px;
+}
+
+#newOrderButton {
+	color: white;
+	margin-right: 10px;
+	font-size: 12px;
 }
 
 #deleteButtonContainer {

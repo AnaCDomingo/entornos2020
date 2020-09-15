@@ -15,7 +15,7 @@ if (mysqli_num_rows($vResultado) > 0) {
     setcookie('nombre', $fila['nombre'], time() + (60 * 60 * 24));
     switch ($_SESSION['tipo_usuario']) {
         case 1:
-            header('Location: ../dashboard-user/dashboard.php');
+            header('Location: ../dashboard-user/dashboard-user.php');
             break;
         case 2:
             header('Location: ../dashboard-admin/dashboard-admin.php');

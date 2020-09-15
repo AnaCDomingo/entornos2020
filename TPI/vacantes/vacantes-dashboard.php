@@ -48,7 +48,7 @@ $vCont = 0;
         </div>
         <div class="col-sm-4" style="display: flex; justify-content:flex-end;align-items:center">
             <a class="navbar-brand" href="#"><?php echo $vNombre; ?></a>
-            <img src="https://cdn2.iconfinder.com/data/icons/people-80/96/Picture1-512.png" width="50" height="50" alt="person_icon" loading="lazy">
+            <img src="../shared/person.png" width="50" height="50" alt="person_icon" loading="lazy">
         </div>
     </nav>
     <div class="container-fluid">
@@ -100,6 +100,7 @@ $vCont = 0;
                         <h6 class='card-subtitle mb-2 text-muted'>{$row['puesto']}</h6>
                         <div class = 'buttonContainer'>
     <a href='../modificar-vacante/modificar-vacante.php?id={$row['id']}' class = 'btn btn-primary' id= 'modifyButton'>Modificar</a>
+    <a href='../subir-orden/subir-orden.php?id={$row['id']}&mat={$row['materia']}&pue={$row['puesto']}' class = 'btn btn-success' id= 'newOrderButton'>Subir órden de mérito</a>
     </div>
   </div>
 </div>

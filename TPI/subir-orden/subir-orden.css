@@ -1,0 +1,8 @@
+#middleRow {
+	padding-left: 15px;
+}
+
+#buttonRow {
+	display: flex;
+	justify-content: center;
+}
