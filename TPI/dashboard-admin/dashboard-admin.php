@@ -53,7 +53,7 @@ $vCont = 0;
         </div>
     </nav>
     <div class="container-fluid">
-        <div class="col" id="leftColumn">
+        <div class="col-3" id="leftColumn">
             <div class="filter">
                 <div class="row">
                     <h5 id="searchText">Buscar</h5>
@@ -78,9 +78,9 @@ $vCont = 0;
 
             </div>
         </div>
-        <div class="col-8" id="centerColumn">
+        <div class="col-9" id="centerColumn">
             <!-- logica de tarjetas (funcional y cliente) -->
-            <div class="cardsContainer" style="max-width:60vw;">
+            <div class="cardsContainer">
                 <?php
                 if (is_string($vPostulaciones)) {
                     echo '<h3 class="not-found-message">' . $vPostulaciones . '</h3>';
@@ -133,9 +133,7 @@ $vCont = 0;
         </div>
 
 
-        <div class="col" id="rightColumn">
-            <a href="../registra-orden/registra-orden.php" class="btn btn-primary" id="meritOrder"> Registrar nueva orden de merito</a>
-        </div>
+
     </div>
 </body>
 
