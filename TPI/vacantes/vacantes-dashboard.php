@@ -39,7 +39,8 @@ $vCont = 0;
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="col-sm-4" style="display: flex; ;align-items:center">
-            <img src="../shared/logo.png" width="50" height="50" style="margin-right:10px" alt="logo_UTN" loading="lazy">
+            <img src="../shared/logo.png" width="50" height="50" 
+            style="margin-right:10px" alt="logo_UTN" loading="lazy">
             <a class="navbar-brand" href="#">Módulos UTN</a>
         </div>
         <div class="col-sm-4" style="display: flex; justify-content:space-between">
@@ -99,8 +100,10 @@ $vCont = 0;
                         <h5 class='card-subtitle mb-2 text-muted'>{$row['descripcion']}</h5>
                         <h6 class='card-subtitle mb-2 text-muted'>{$row['puesto']}</h6>
                         <div class = 'buttonContainer'>
-    <a href='../modificar-vacante/modificar-vacante.php?id={$row['id']}' class = 'btn btn-primary' id= 'modifyButton'>Modificar</a>
-    <a href='../subir-orden/subir-orden.php?id={$row['id']}&mat={$row['materia']}&pue={$row['puesto']}' class = 'btn btn-success' id= 'newOrderButton'>Subir órden de mérito</a>
+    <a href='../modificar-vacante/modificar-vacante.php?id={$row['id']}' 
+    class = 'btn btn-primary' id= 'modifyButton'>Modificar</a>
+    <a href='../subir-orden/subir-orden.php?id={$row['id']}&mat={$row['materia']}&pue={$row['puesto']}' 
+    class = 'btn btn-success' id= 'newOrderButton'>Subir órden de mérito</a>
     </div>
   </div>
 </div>

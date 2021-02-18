@@ -95,7 +95,11 @@ $vCont = 0;
                         <h4 class='card-title'>{$row['nombre']} {$row['apellido']}</h4>
                         <h5 class='card-subtitle mb-2 text-muted'>{$row['descripcion']}</h5>
                         <div class = 'buttonContainer'>
-    <button class = 'btn btn-primary'>Descargar CV</button>
+    <a class = 'btn btn-primary'
+    target='_blank'
+     href='../postulaciones/{$row['archivo_adjunto']}'>
+     Descargar CV
+     </a>
     <button class='btn' style = 'border: 1px solid lightgrey'>Enviar por mail</button>
     </div>
   </div>
