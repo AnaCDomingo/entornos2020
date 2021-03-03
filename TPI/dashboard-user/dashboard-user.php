@@ -18,10 +18,10 @@ if (isset($_POST['palabra']) && !empty($_POST['palabra'])) {
     parse_str($_SERVER['QUERY_STRING'], $queries);
     if (empty($queries)) {
         $vacantes = getList(0);
-        $currentPage = 1;
+        $vCurrentPage = 1;
     } else {
         $vacantes = getList($queries['offset']);
-        $currentPage = intval($queries['offset']) / 4 + 1;
+        $vCurrentPage = intval($queries['offset']) / 4 + 1;
     }
 }
 $cont = 0;
@@ -139,6 +139,8 @@ $cont = 0;
                 <ul class="pagination">
                     <li class="page-item">
                         <a class="page-link" href="dashboard-user.php?<?php $vPreviousPage = ($vCurrentPage - 2) * 4;
+                                                                        if($vPreviousPage<0)
+                                                                        $vPreviousPage = 0;
                                                                         echo "offset=$vPreviousPage"; ?>" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>

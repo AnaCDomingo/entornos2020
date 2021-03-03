@@ -37,7 +37,7 @@ $vNombre = $_SESSION['nombre'];
         </div>
         <div class="col-sm-4" style="display: flex; justify-content:space-between">
             <a class="navbar-brand" href="../dashboard-admin/dashboard-admin.php">Solicitudes</a>
-            <a class="navbar-brand" href="./vacantes.php" id="currentTab">Vacantes</a>
+            <a class="navbar-brand" href="../vacantes/vacantes-dashboard.php" id="currentTab">Vacantes</a>
         </div>
         <div class="col-sm-4" style="display: flex; justify-content:flex-end;align-items:center">
             <a class="navbar-brand" href="#"><?php echo $vNombre; ?></a>

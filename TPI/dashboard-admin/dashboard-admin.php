@@ -120,6 +120,8 @@ $vCont = 0;
                 <ul class="pagination">
                     <li class="page-item">
                         <a class="page-link" href="dashboard-admin.php?<?php $vPreviousPage = ($vCurrentPage - 2) * 4;
+                                                                          if($vPreviousPage<0)
+                                                                          $vPreviousPage = 0;
                                                                         echo "offset=$vPreviousPage"; ?>" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>

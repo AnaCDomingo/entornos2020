@@ -41,11 +41,11 @@ $vCont = 0;
         <div class="col-sm-4" style="display: flex; ;align-items:center">
             <img src="../shared/logo.png" width="50" height="50" 
             style="margin-right:10px" alt="logo_UTN" loading="lazy">
-            <a class="navbar-brand" href="#">Módulos UTN</a>
+            <a class="navbar-brand" href="../dashboard-admin/dashboard-admin.php">Módulos UTN</a>
         </div>
         <div class="col-sm-4" style="display: flex; justify-content:space-between">
             <a class="navbar-brand" href="../dashboard-admin/dashboard-admin.php">Solicitudes</a>
-            <a class="navbar-brand" href="./vacantes.php" id="currentTab">Vacantes</a>
+            <a class="navbar-brand" href="#" id="currentTab">Vacantes</a>
         </div>
         <div class="col-sm-4" style="display: flex; justify-content:flex-end;align-items:center">
             <a class="navbar-brand" href="#"><?php echo $vNombre; ?></a>
@@ -122,6 +122,8 @@ $vCont = 0;
                 <ul class="pagination">
                     <li class="page-item">
                         <a class="page-link" href="vacantes-dashboard.php?<?php $vPreviousPage = ($vCurrentPage - 2) * 2;
+                                                                            if($vPreviousPage<0)
+                                                                                $vPreviousPage = 0;
                                                                             echo "offset=$vPreviousPage"; ?>" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
