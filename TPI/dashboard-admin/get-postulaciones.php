@@ -23,7 +23,7 @@ function getFilteredList($vPal)
 {
     setcookie('busca', $vPal);
     include('../conexion.php');
-    $vSql = ("SELECT DISTINCT usu.nombre, usu.apellido, mat.descripcion FROM postulaciones pos 
+    $vSql = ("SELECT DISTINCT usu.nombre, usu.apellido, mat.descripcion, pos.archivo_adjunto FROM postulaciones pos 
     INNER JOIN vacantes vac On pos.id_vacante = pos.id_vacante INNER JOIN
      materias mat on mat.id_materia = vac.id_materia INNER JOIN usuarios usu on usu.id_usuario = pos.id_usuario 
       WHERE usu.nombre LIKE '%" . $vPal . "%' OR usu.apellido LIKE '%" . $vPal . "%'
@@ -37,13 +37,4 @@ function getFilteredList($vPal)
     }
 
     mysqli_close($link);
-}
-
-function downloadCV($vDir){
-    // header('Location: ../login/login.php');
-    echo '<script language="javascript">';
-    echo 'alert("El usuario con ese legajo o email ya existe");
-    window.location.href="./signup.php";
-    ';
-    echo '</script>';
 }

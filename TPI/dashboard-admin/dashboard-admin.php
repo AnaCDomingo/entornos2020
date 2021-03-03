@@ -100,7 +100,8 @@ $vCont = 0;
      href='../postulaciones/{$row['archivo_adjunto']}'>
      Descargar CV
      </a>
-    <button class='btn' style = 'border: 1px solid lightgrey'>Enviar por mail</button>
+    <a class='btn' style = 'border: 1px solid lightgrey' target='_blank'
+     href='#'>Enviar por mail</a>
     </div>
   </div>
 </div>
