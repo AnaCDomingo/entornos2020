@@ -1,0 +1,23 @@
+.navbar-brand {
+	font-size: 24px;
+}
+
+h2 {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#currentTab {
+	text-decoration: none;
+	border-bottom: 1px solid gray;
+}
+
+#buttonsRow {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 15px 0 15px;
+	margin-top: 25px;
+}
+
+#goBackButton,#deleteUserButton,#changePassUserButton,#exitButton {
+	color: white;
+}
