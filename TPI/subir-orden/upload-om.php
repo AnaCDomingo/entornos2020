@@ -28,14 +28,17 @@ if ($_FILES["omUpload"]["size"] > 5000000) {
 
 if ($uploadOK == true) {
     if (move_uploaded_file($_FILES['omUpload']['tmp_name'], $targetfolder)) {
-
-        echo "The file " . basename($_FILES['omUpload']['tmp_name']) . " is uploaded";
         $vSql = ("INSERT INTO orden_merito(archivo_adjunto) VALUES ('$vBasename')");
         $vResultado = mysqli_query($link, $vSql) or die('se produjo un error');
         $vResultado2 = getOrdId($vBasename);
         $row = mysqli_fetch_array($vResultado2);
         echo $row['id_orden_merito'];
         updateVacantesMerito($row['id_orden_merito'], $vVacID);
+        echo '<script language="javascript">';
+        echo 'alert("La orden de mérito fue registrada correctamente");
+        window.location.href="../dashboard-admin/dashboard-admin.php";
+        ';
+        echo '</script>';
     } else {
 
         echo "Problem uploading file";
