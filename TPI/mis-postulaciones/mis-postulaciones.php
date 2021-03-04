@@ -2,28 +2,25 @@
 
 //Sesiones
 session_start();
-$esta_logueado = false;
+$userLogged = false;
 if (isset($_SESSION['id_usuario'])) {
     $nombre = $_SESSION['nombre'];
-    $esta_logueado = true;
+    $userLogged = true;
 }
 //Includes
-include_once('get-vacantes-user.php');
-//Si viene del filtrado
-if (isset($_POST['palabra']) && !empty($_POST['palabra'])) {
-    $vacantes = getFilteredList($_POST['palabra']);
-} else {
+include_once('./get-mis-postulaciones.php');
+
     //Tomo los query params para poder realizar el paginado
     $queries = array();
     parse_str($_SERVER['QUERY_STRING'], $queries);
     if (empty($queries)) {
-        $vacantes = getList(0);
+        $misPostulaciones = getList(0,$_SESSION['id_usuario']);
         $vCurrentPage = 1;
     } else {
-        $vacantes = getList($queries['offset']);
+        $misPostulaciones = getList($queries['offset'],$_SESSION['id_usuario']);
         $vCurrentPage = intval($queries['offset']) / 4 + 1;
     }
-}
+
 $cont = 0;
 ?>
 
@@ -34,22 +31,22 @@ $cont = 0;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="./dashboard-user.css">
+    <link rel="stylesheet" href="./mis-postulaciones.css">
     <title>ModUTN</title>
 </head>
 
 <body>
     <?php
-    if ($esta_logueado) { ?>
+    if ($userLogged) { ?>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="col-sm-4" style="display: flex; ;align-items:center">
                 <img src="../shared/logo.png" width="50" height="50" style="margin-right:10px" alt="logo_UTN" loading="lazy">
-                <a class="navbar-brand" href="#">Módulos UTN</a>
+                <a class="navbar-brand" href="../dashboard-user/dashboard-user.php">Módulos UTN</a>
             </div>
             <div class="col-sm-4" style="display: flex; justify-content:space-between">
-                <a class="navbar-brand" href="#" id="currentTab">Vacantes</a>
-                <a class="navbar-brand" href="../mis-postulaciones/mis-postulaciones.php">Mis Postulaciones</a>
+                <a class="navbar-brand" href="../dashboard-user/dashboard-user.php" >Vacantes</a>
+                <a class="navbar-brand" href="#" id="currentTab">Mis Postulaciones</a>
             </div>
             <div class="col-sm-4" style="display: flex; justify-content:flex-end;align-items:center">
                 <a class="navbar-brand" href="#"><?php echo $nombre ?></a>
@@ -75,61 +72,43 @@ $cont = 0;
     <?php
     }
     ?>
-    <div class="container-fluid">
-        <div class="col" id="leftColumn">
-            <div class="filter">
-                <div class="row">
-                    <h5 id="searchText">Buscar</h5>
-                </div>
-                <div class="row">
-                    <form action="dashboard-user.php" method="POST" name="busqueda">
-                        <input type="text" class="form-control" name="palabra" />
-                        <div class="buttonsRow">
-                            <button type="submit" id="searchButton" class="btn btn-primary">Buscar</button>
-                            <?php if (isset($_POST['palabra']) && !empty($_POST['palabra'])) {
-                            ?>
-                                <form action="dashboard-user.php">
-                                    <button type="submit" id="goBackButton" class="btn btn-primary">Volver</button>
-                                </form>
-                            <?php
-                            }
-                            ?>
-                        </div>
-
-                    </form>
-                </div>
-
-            </div>
-        </div>
-        <div class="col-8" id="centerColumn">
+        <div>
             <!-- logica de tarjetas (funcional y cliente) -->
-            <div class="cardsContainer" style="max-width:80vw;">
+            <div class="cardsContainer">
                 <?php
-                if (is_string($vacantes)) {
-                    echo '<h3 class="not-found-message">' . $vacantes . '</h3>';
+                if (is_string($misPostulaciones)) {
+                    echo '<h3 class="not-found-message">' . $misPostulaciones . '</h3>';
                 } else {
-                    while ($row = mysqli_fetch_array($vacantes)) {
+                    while ($row = mysqli_fetch_array($misPostulaciones)) {
                         $cont++;
                         if ($cont % 2 != 0 || $cont == 1) {
                             echo "<div class='row'>";
                         };
-                        echo "<div class='card' style='width: 28vw; height:25vh;margin:16px; box-shadow: 5px 2px #cccccc6e'>
+                        echo "<div class='card' style='width: 28vw; height:25vh;margin:16px;box-shadow: 5px 2px #cccccc6e'>
                             <div class='card-body'>
                                 <h4 class='card-title'>{$row['materia']}</h4>
                                 <h5 class='card-subtitle mb-2 text-muted'>{$row['carrera']}</h5>
                                 <h5 class='card-subtitle mb-2 text-muted'>{$row['puesto']}</h5>
-                                <div class = 'buttonContainer'>
-                                    <a href='../nueva-postulacion/nuevaPostulacion.php?id={$row['id_vacante']}&pue={$row['puesto']}
-                                    &mat={$row['materia']}' class='btn btn-primary'>Postularse</a>
+                                <div class = 'buttonContainer'>";
+                                
+                                if(isset($row['archivo_adjunto'])){
+                                 echo "<a target='_blank' href='../ordenes-merito/{$row['archivo_adjunto']}'
+                                 class='btn btn-primary'>Descargar orden de mérito</a>";
+                                }
+                                else{
+                                    echo "<button class='btn' disabled>Orden de mérito aún no disponible</button>";
+                                }
+                                echo "
                                 </div>
                             </div>
                         </div>
                         ";
+                        
 
-                        if ($cont % 2 == 0 || $cont == mysqli_num_rows($vacantes))
+                        if ($cont % 2 == 0 || $cont == mysqli_num_rows($misPostulaciones))
                             echo "</div>";
                     }
-                    mysqli_free_result($vacantes);
+                    mysqli_free_result($misPostulaciones);
                 }
 
                 ?>
@@ -138,18 +117,18 @@ $cont = 0;
             <nav class="paginationBottom" aria-label="Page navigation">
                 <ul class="pagination">
                     <li class="page-item">
-                        <a class="page-link" href="dashboard-user.php?<?php $vPreviousPage = ($vCurrentPage - 2) * 4;
+                        <a class="page-link" href="mis-postulaciones.php?<?php $vPreviousPage = ($vCurrentPage - 2) * 4;
                                                                         if($vPreviousPage<0)
                                                                         $vPreviousPage = 0;
                                                                         echo "offset=$vPreviousPage"; ?>" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
-                    <li class="page-item"><a class="page-link" href="dashboard-user.php">1</a></li>
-                    <li class="page-item"><a class="page-link" href="dashboard-user.php?<?php echo "offset=4" ?>">2</a></li>
-                    <li class="page-item"><a class="page-link" href="dashboard-user.php?<?php echo "offset=8" ?>">3</a></li>
+                    <li class="page-item"><a class="page-link" href="mis-postulaciones.php">1</a></li>
+                    <li class="page-item"><a class="page-link" href="mis-postulaciones.php?<?php echo "offset=4" ?>">2</a></li>
+                    <li class="page-item"><a class="page-link" href="mis-postulaciones.php?<?php echo "offset=8" ?>">3</a></li>
                     <li class="page-item">
-                        <a class="page-link" href="dashboard-user.php?<?php $vNextPage = ($vCurrentPage) * 4;;
+                        <a class="page-link" href="mis-postulaciones.php?<?php $vNextPage = ($vCurrentPage) * 4;;
                                                                         echo "offset=$vNextPage"; ?>" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
