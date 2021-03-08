@@ -91,7 +91,7 @@ $vCont = 0;
                         if ($vCont % 2 != 0 || $vCont == 1) {
                             echo "<div class='row'>";
                         };
-                        echo "<div class='card' style='width: 28vw; height:25vh;margin:16px;'>
+                        echo "<div class='card' style='width: 28vw; height:25vh;margin:16px;  box-shadow: 5px 2px #cccccc6e''>
                         <div class='card-body'>
                         <h4 class='card-title'>{$row['nombre']} {$row['apellido']}</h4>
                         <h5 class='card-subtitle mb-2 text-muted'>{$row['descripcion']}</h5>

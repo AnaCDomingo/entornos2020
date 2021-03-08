@@ -6,6 +6,7 @@
 	width: 28vw;
 	height: 32vh;
 	margin: 16px;
+	box-shadow: 5px 2px #cccccc6e;
 }
 
 .container-fluid {
@@ -35,6 +36,7 @@ select {
 .cardsContainer {
 	display: flex;
 	height: 60vh;
+
 }
 
 .buttonContainer {

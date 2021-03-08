@@ -41,7 +41,7 @@ if (isset($_SESSION['id_usuario'])) {
         <div class="col-sm-4" style="display: flex; justify-content:flex-end;align-items:center">
             <a class="navbar-brand" href="#" id="currentTab"><?php echo $nameUser ?></a>
             <img src="https://cdn2.iconfinder.com/data/icons/people-80/96/Picture1-512.png" width="50" height="50" alt="person_icon" loading="lazy">
-            <a id="exitButton" name="exitButton" onclick="document.location.href='../login/login.php'" class="btn btn-danger"> Salir </a>
+            <a id="exitButton" name="exitButton" href="./cerrarSesion.php" class="btn btn-danger"> Salir </a>
 
         </div>
     </nav>
