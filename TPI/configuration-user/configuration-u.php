@@ -14,40 +14,42 @@ include("../conexion.php");
 session_start();
 if (isset($_SESSION['id_usuario'])) {
     $userId = $_SESSION['id_usuario'];
-$vSql = ("SELECT nombre,apellido,dni,email FROM usuarios WHERE id_usuario ='$userId' AND id_estado <> 2 ");
-$vResultado = mysqli_query($link, $vSql);
-if (mysqli_num_rows($vResultado) == 1) {
-    $fila = mysqli_fetch_array($vResultado);
-    $nombre = $fila['nombre'];
-    $apellido = $fila['apellido'];
-    $dni = $fila['dni'];
-    $email = $fila['email'];
-    $nameUser=$_SESSION['nombre'];
-}}
+    $vSql = ("SELECT nombre,apellido,legajo,email FROM usuarios WHERE id_usuario ='$userId' AND id_estado <> 2 ");
+    $vResultado = mysqli_query($link, $vSql);
+    if (mysqli_num_rows($vResultado) == 1) {
+        $fila = mysqli_fetch_array($vResultado);
+        $nombre = $fila['nombre'];
+        $apellido = $fila['apellido'];
+        $legajo = $fila['legajo'];
+        $email = $fila['email'];
+        $nameUser = $_SESSION['nombre'];
+    }
+}
 ?>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="col-sm-4" style="display: flex; ;align-items:center">
             <img src="../shared/logo.png" width="50" height="50" style="margin-right:10px" alt="logo_UTN" loading="lazy">
-            <a class="navbar-brand" href="#">Módulos UTN</a>
+            <a class="navbar-brand" href="../dashboard-user/dashboard-user.php">Módulos UTN</a>
         </div>
         <div class="col-sm-4" style="display: flex; justify-content:space-between">
-            <a class="navbar-brand" href="#" >Vacantes</a>
-            <a class="navbar-brand" href="#" 1>Mis Postulaciones</a>
+            <a class="navbar-brand" href="../dashboard-user/dashboard-user.php">Vacantes</a>
+            <a class="navbar-brand" href="../mis-postulaciones/mis-postulaciones.php" 1>Mis Postulaciones</a>
 
         </div>
         <div class="col-sm-4" style="display: flex; justify-content:flex-end;align-items:center">
             <a class="navbar-brand" href="#" id="currentTab"><?php echo $nameUser ?></a>
             <img src="https://cdn2.iconfinder.com/data/icons/people-80/96/Picture1-512.png" width="50" height="50" alt="person_icon" loading="lazy">
             <a id="exitButton" name="exitButton" onclick="document.location.href='../login/login.php'" class="btn btn-danger"> Salir </a>
+
         </div>
     </nav>
     <div class="container-fluid">
         <div class="col-xs-2"></div>
         <div class="col-xs-8">
             <div class="container">
-                <h2 id="nameUser" name="nameUser"  ><?php echo $nameUser ?> </h2>
+                <h2 id="nameUser" name="nameUser"><?php echo $nameUser ?> </h2>
                 <hr>
                 <form action="alterUser-query.php" method="POST" name="configurationForm">
                     <div class="row">
@@ -67,14 +69,14 @@ if (mysqli_num_rows($vResultado) == 1) {
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Legajo/DNI</label>
-                                <input type="number" class="form-control" id="legajoUser" name="legajoUser" value="<?php echo $dni ?>">
+                                <input type="number" class="form-control" id="legajoUser" name="legajoUser" value="<?php echo $legajo ?>">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Email</label>
                                 <input type="email" class="form-control" id="mailUser" name="mailUser" value="<?php echo $email ?>">
                             </div>
                             <div class="form-group">
-                                <input type="submit"value="Eliminar cuenta"name="deleteUserButton" id="deleteUserButton" onClick= "return confirm('Está seguro que quiere eliminar la cuenta?')"   class="btn btn-danger">
+                                <input type="submit" value="Eliminar cuenta" name="deleteUserButton" id="deleteUserButton" onClick="return confirm('Está seguro que quiere eliminar la cuenta?')" class="btn btn-danger">
                             </div>
                         </div>
                     </div>

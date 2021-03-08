@@ -27,21 +27,21 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="exampleInputNombre1">Nombre</label>
-                                <input type="text" required class="form-control" id="exampleInputNombre1" name="nombre">
+                                <input required type="text" required class="form-control" id="exampleInputNombre1" name="nombre">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputApellido1">Apellido</label>
-                                <input type="text" required class="form-control" id="exampleInputApellido1" name="apellido">
+                                <input required type="text" required class="form-control" id="exampleInputApellido1" name="apellido">
                             </div>
                             <div class="form-group">
                                 <label for="InputPassword1">Password</label>
-                                <input type="password" required class="form-control" id="InputPassword1" name="pass">
+                                <input required minlength="6" maxlength="12" type="password" required class="form-control" id="InputPassword1" name="pass">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="exampleInputDni1">DNI</label>
-                                <input type="text" required class="form-control" id="exampleInputDni1" name="dni">
+                                <label for="exampleInputLegajo1">Legajo</label>
+                                <input type="text" required minlength="5" maxlength="5"  class="form-control" id="exampleInputLegajo1" name="legajo">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email</label>
@@ -49,7 +49,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="InputPassword2">Repetir Password</label>
-                                <input type="password" class="form-control" id="InputPassword2">
+                                <input type="password" required minlength="6" maxlength="12" class="form-control" id="InputPassword2" name='pass_rep'>
                             </div>
                         </div>
                     </div>

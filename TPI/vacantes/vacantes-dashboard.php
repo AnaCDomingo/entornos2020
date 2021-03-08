@@ -1,6 +1,9 @@
 <?php
 include_once('./get-vacantes.php');
-session_start();
+$vTipo = $_SESSION['tipo_usuario'];
+if ($vTipo != 2) {
+    header('Location: ../login/login.php');
+}
 //Lógica de sesiones
 $vNombre = $_SESSION['nombre'];
 //Lógica del filtrado
@@ -36,16 +39,17 @@ $vCont = 0;
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="col-sm-4" style="display: flex; ;align-items:center">
-            <img src="../shared/logo.png" width="50" height="50" style="margin-right:10px" alt="logo_UTN" loading="lazy">
-            <a class="navbar-brand" href="#">Módulos UTN</a>
+            <img src="../shared/logo.png" width="50" height="50" 
+            style="margin-right:10px" alt="logo_UTN" loading="lazy">
+            <a class="navbar-brand" href="../dashboard-admin/dashboard-admin.php">Módulos UTN</a>
         </div>
         <div class="col-sm-4" style="display: flex; justify-content:space-between">
             <a class="navbar-brand" href="../dashboard-admin/dashboard-admin.php">Solicitudes</a>
-            <a class="navbar-brand" href="./vacantes.php" id="currentTab">Vacantes</a>
+            <a class="navbar-brand" href="#" id="currentTab">Vacantes</a>
         </div>
         <div class="col-sm-4" style="display: flex; justify-content:flex-end;align-items:center">
             <a class="navbar-brand" href="#"><?php echo $vNombre; ?></a>
-            <img src="https://cdn2.iconfinder.com/data/icons/people-80/96/Picture1-512.png" width="50" height="50" alt="person_icon" loading="lazy">
+            <img src="../shared/person.png" width="50" height="50" alt="person_icon" loading="lazy">
         </div>
     </nav>
     <div class="container-fluid">
@@ -96,7 +100,10 @@ $vCont = 0;
                         <h5 class='card-subtitle mb-2 text-muted'>{$row['descripcion']}</h5>
                         <h6 class='card-subtitle mb-2 text-muted'>{$row['puesto']}</h6>
                         <div class = 'buttonContainer'>
-    <a href='../modificar-vacante/modificar-vacante.php?id={$row['id']}' class = 'btn btn-primary' id= 'modifyButton'>Modificar</a>
+    <a href='../modificar-vacante/modificar-vacante.php?id={$row['id']}' 
+    class = 'btn btn-primary' id= 'modifyButton'>Modificar</a>
+    <a href='../subir-orden/subir-orden.php?id={$row['id']}&mat={$row['materia']}&pue={$row['puesto']}' 
+    class = 'btn btn-success' id= 'newOrderButton'>Subir órden de mérito</a>
     </div>
   </div>
 </div>
@@ -115,6 +122,8 @@ $vCont = 0;
                 <ul class="pagination">
                     <li class="page-item">
                         <a class="page-link" href="vacantes-dashboard.php?<?php $vPreviousPage = ($vCurrentPage - 2) * 2;
+                                                                            if($vPreviousPage<0)
+                                                                                $vPreviousPage = 0;
                                                                             echo "offset=$vPreviousPage"; ?>" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>

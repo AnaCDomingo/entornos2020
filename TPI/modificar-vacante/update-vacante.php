@@ -1,5 +1,10 @@
 <?php
 include('../conexion.php');
+session_start();
+$vTipo = $_SESSION['tipo_usuario'];
+if ($vTipo != 2) {
+    header('Location: ../login/login.php');
+}
 parse_str($_SERVER['QUERY_STRING'], $queries);
 if (empty($queries)) {
     header('Location: ../vacantes/vacantes-dashboard.php');

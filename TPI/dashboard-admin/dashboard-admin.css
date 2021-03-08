@@ -53,6 +53,9 @@ select {
 	display: flex;
 	justify-content: center;
 }
+.pagination {
+	margin-right: 100px;
+}
 
 #btnFilter {
 	width: 100px;
@@ -73,17 +76,4 @@ select {
 #leftColumn {
 	padding: 20px;
 	width: 20vw;
-}
-
-#rightColumn {
-	width: 15vw;
-	height: 90vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin: auto;
-}
-
-#centerColumn {
-	width: 60vw;
 }

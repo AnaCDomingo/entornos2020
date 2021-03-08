@@ -21,11 +21,11 @@
     <div class="container-fluid">
         <form action="user-query.php" method="POST" name="loginForm">
             <div class="form-group">
-                <label for="InputEmail1">Usuario/email</label>
+                <label for="InputEmail1">Email</label>
                 <input type="email" class="form-control" id="InputEmail1" name="email">
             </div>
             <div class="form-group">
-                <label for="InputPassword1">contraseña</label>
+                <label for="InputPassword1">Contraseña</label>
                 <input type="password" class="form-control" id="InputPassword1" name="pass">
             </div>
             <button type="submit" name="loginForm" class="btn btn-primary">Iniciar sesión</button>

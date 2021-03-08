@@ -1,4 +1,9 @@
 <?php
+session_start();
+$vTipo = $_SESSION['tipo_usuario'];
+if ($vTipo != 2) {
+    header('Location: ../login/login.php');
+}
 
 function getList($vOffset)
 {

@@ -1,6 +1,10 @@
 <?php
 include_once('./get-postulaciones.php');
 session_start();
+$vTipo = $_SESSION['tipo_usuario'];
+if ($vTipo != 2) {
+    header('Location: ../login/login.php');
+}
 //Lógica de sesiones
 $vNombre = $_SESSION['nombre'];
 //Lógica del filtrado
@@ -46,10 +50,11 @@ $vCont = 0;
         <div class="col-sm-4" style="display: flex; justify-content:flex-end;align-items:center">
             <a class="navbar-brand" href="../configuration-admin/configuration-u.php"><?php echo $vNombre; ?></a>
             <img src="https://cdn2.iconfinder.com/data/icons/people-80/96/Picture1-512.png" width="50" height="50" alt="person_icon" loading="lazy">
+
         </div>
     </nav>
     <div class="container-fluid">
-        <div class="col" id="leftColumn">
+        <div class="col-3" id="leftColumn">
             <div class="filter">
                 <div class="row">
                     <h5 id="searchText">Buscar</h5>
@@ -74,9 +79,9 @@ $vCont = 0;
 
             </div>
         </div>
-        <div class="col-8" id="centerColumn">
+        <div class="col-9" id="centerColumn">
             <!-- logica de tarjetas (funcional y cliente) -->
-            <div class="cardsContainer" style="max-width:60vw;">
+            <div class="cardsContainer">
                 <?php
                 if (is_string($vPostulaciones)) {
                     echo '<h3 class="not-found-message">' . $vPostulaciones . '</h3>';
@@ -91,8 +96,13 @@ $vCont = 0;
                         <h4 class='card-title'>{$row['nombre']} {$row['apellido']}</h4>
                         <h5 class='card-subtitle mb-2 text-muted'>{$row['descripcion']}</h5>
                         <div class = 'buttonContainer'>
-    <button class = 'btn btn-primary'>Descargar CV</button>
-    <button class='btn' style = 'border: 1px solid lightgrey'>Enviar por mail</button>
+    <a class = 'btn btn-primary'
+    target='_blank'
+     href='../postulaciones/{$row['archivo_adjunto']}'>
+     Descargar CV
+     </a>
+    <a class='btn' style = 'border: 1px solid lightgrey' target='_blank'
+     href='#'>Enviar por mail</a>
     </div>
   </div>
 </div>
@@ -111,6 +121,8 @@ $vCont = 0;
                 <ul class="pagination">
                     <li class="page-item">
                         <a class="page-link" href="dashboard-admin.php?<?php $vPreviousPage = ($vCurrentPage - 2) * 4;
+                                                                          if($vPreviousPage<0)
+                                                                          $vPreviousPage = 0;
                                                                         echo "offset=$vPreviousPage"; ?>" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
@@ -129,9 +141,7 @@ $vCont = 0;
         </div>
 
 
-        <div class="col" id="rightColumn">
-            <a href="../registra-orden/registra-orden.php" class="btn btn-primary" id="meritOrder"> Registrar nueva orden de merito</a>
-        </div>
+
     </div>
 </body>
 
