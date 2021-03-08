@@ -18,6 +18,6 @@ h2 {
 	margin-top: 25px;
 }
 
-#goBackButton,#deleteUserButton,#changePassUserButton,#exitButton {
+#goBackButton {
 	color: white;
 }
