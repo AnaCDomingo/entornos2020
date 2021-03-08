@@ -18,9 +18,9 @@ elseif (isset(($_POST['configurationForm']))){
             $nEmail = $_POST['mailUser'];
             $nNombre = $_POST['nombreUser'];
             $nApellido = $_POST['apellidoUser'];
-            $nDni = $_POST['legajoUser'];
+            $nLegajo = $_POST['legajoUser'];
             $vSql1=("UPDATE usuarios SET email = '$nEmail', nombre = '$nNombre', apellido = '$nApellido',
-             dni = '$nDni' WHERE id_usuario ='$userId1' ");
+             legajo = '$nLegajo' WHERE id_usuario ='$userId1' ");
             $vResultado1 = mysqli_query($link, $vSql1) or die(mysqli_error($link));  
 }
 };

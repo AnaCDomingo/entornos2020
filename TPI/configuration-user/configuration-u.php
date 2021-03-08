@@ -14,13 +14,13 @@ include("../conexion.php");
 session_start();
 if (isset($_SESSION['id_usuario'])) {
     $userId = $_SESSION['id_usuario'];
-    $vSql = ("SELECT nombre,apellido,dni,email FROM usuarios WHERE id_usuario ='$userId' AND id_estado <> 2 ");
+    $vSql = ("SELECT nombre,apellido,legajo,email FROM usuarios WHERE id_usuario ='$userId' AND id_estado <> 2 ");
     $vResultado = mysqli_query($link, $vSql);
     if (mysqli_num_rows($vResultado) == 1) {
         $fila = mysqli_fetch_array($vResultado);
         $nombre = $fila['nombre'];
         $apellido = $fila['apellido'];
-        $dni = $fila['dni'];
+        $legajo = $fila['legajo'];
         $email = $fila['email'];
         $nameUser = $_SESSION['nombre'];
     }
@@ -31,11 +31,11 @@ if (isset($_SESSION['id_usuario'])) {
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="col-sm-4" style="display: flex; ;align-items:center">
             <img src="../shared/logo.png" width="50" height="50" style="margin-right:10px" alt="logo_UTN" loading="lazy">
-            <a class="navbar-brand" href="#">Módulos UTN</a>
+            <a class="navbar-brand" href="../dashboard-user/dashboard-user.php">Módulos UTN</a>
         </div>
         <div class="col-sm-4" style="display: flex; justify-content:space-between">
-            <a class="navbar-brand" href="#">Vacantes</a>
-            <a class="navbar-brand" href="#" 1>Mis Postulaciones</a>
+            <a class="navbar-brand" href="../dashboard-user/dashboard-user.php">Vacantes</a>
+            <a class="navbar-brand" href="../mis-postulaciones/mis-postulaciones.php" 1>Mis Postulaciones</a>
 
         </div>
         <div class="col-sm-4" style="display: flex; justify-content:flex-end;align-items:center">
@@ -67,7 +67,7 @@ if (isset($_SESSION['id_usuario'])) {
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Legajo/DNI</label>
-                                <input type="number" class="form-control" id="legajoUser" name="legajoUser" value="<?php echo $dni ?>">
+                                <input type="number" class="form-control" id="legajoUser" name="legajoUser" value="<?php echo $legajo ?>">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Email</label>
