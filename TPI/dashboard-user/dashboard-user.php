@@ -76,7 +76,8 @@ $cont = 0;
     }
     ?>
     <div class="container-fluid">
-        <div class="col" id="leftColumn">
+    <div class="center-body">
+        <div class="col-4" id="leftColumn">
             <div class="filter">
                 <div class="row">
                     <h5 id="searchText">Buscar</h5>
@@ -134,7 +135,10 @@ $cont = 0;
 
                 ?>
             </div>
-            <!-- paginación -->
+           
+        </div>
+        </div>
+         <!-- paginación -->
             <nav class="paginationBottom" aria-label="Page navigation">
                 <ul class="pagination">
                     <li class="page-item">
@@ -156,7 +160,6 @@ $cont = 0;
                     </li>
                 </ul>
             </nav>
-        </div>
     </div>
 </body>
 
