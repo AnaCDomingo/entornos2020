@@ -14,13 +14,13 @@ include("../conexion.php");
 session_start();
 if (isset($_SESSION['id_usuario'])) {
     $userId = $_SESSION['id_usuario'];
-$vSql = ("SELECT nombre,apellido,dni,email FROM usuarios WHERE id_usuario ='$userId' AND id_estado <> 2 ");
+$vSql = ("SELECT nombre,apellido,legajo,email FROM usuarios WHERE id_usuario ='$userId' AND id_estado <> 2 ");
 $vResultado = mysqli_query($link, $vSql);
 if (mysqli_num_rows($vResultado) == 1) {
     $fila = mysqli_fetch_array($vResultado);
     $nombre = $fila['nombre'];
     $apellido = $fila['apellido'];
-    $dni = $fila['dni'];
+    $legajo = $fila['legajo'];
     $email = $fila['email'];
     $nameUser=$_SESSION['nombre'];
 }}
@@ -66,8 +66,8 @@ if (mysqli_num_rows($vResultado) == 1) {
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Legajo/DNI</label>
-                                <input type="number" class="form-control" id="legajoUser" name="legajoUser" value="<?php echo $dni ?>">
+                                <label for="exampleInputEmail1">Legajo</label>
+                                <input type="number" class="form-control" id="legajoUser" name="legajoUser" value="<?php echo $legajo ?>">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Email</label>
