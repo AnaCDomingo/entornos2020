@@ -52,7 +52,7 @@ $cont = 0;
                 <a class="navbar-brand" href="../mis-postulaciones/mis-postulaciones.php">Mis Postulaciones</a>
             </div>
             <div class="col-sm-4" style="display: flex; justify-content:flex-end;align-items:center">
-                <a class="navbar-brand" href="#"><?php echo $nombre ?></a>
+                <a class="navbar-brand" href="../configuration-user/configuration-u.php"><?php echo $nombre ?></a>
                 <img src="https://cdn2.iconfinder.com/data/icons/people-80/96/Picture1-512.png" width="50" height="50" alt="person_icon" loading="lazy">
             </div>
         </nav>

@@ -24,15 +24,7 @@ elseif (isset(($_POST['configurationForm']))){
             $vResultado1 = mysqli_query($link, $vSql1) or die(mysqli_error($link));  
 }
 }
-elseif (isset(($_POST['exitButton']))) {
-    # cerrar sesión de usuario (botón salir)
-    if (isset(($_SESSION['id_usuario']))) {
-        # limpia la variable de sesión con el id de usuario y el nombre
-        unset ($_SESSION['id_usuario']);
-        unset ($_SESSION['nombre']);
 
-    }
-}
 
 ?>
         <script>

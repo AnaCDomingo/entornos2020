@@ -33,14 +33,14 @@ if (mysqli_num_rows($vResultado) == 1) {
             <a class="navbar-brand" href="#">Módulos UTN</a>
         </div>
         <div class="col-sm-4" style="display: flex; justify-content:space-between">
-            <a class="navbar-brand" href="#" >Solicitudes</a>
-            <a class="navbar-brand" href="#" 1>Vacantes</a>
+            <a class="navbar-brand" href="../dashboard-admin/dashboard-admin.php" >Solicitudes</a>
+            <a class="navbar-brand" href="../vacantes/vacantes-dashboard.php" 1>Vacantes</a>
 
         </div>
         <div class="col-sm-4" style="display: flex; justify-content:flex-end;align-items:center">
-            <a class="navbar-brand" href="#" id="currentTab"><?php echo $nameUser ?></a>
+            <a class="navbar-brand" href="./configuration-u.php" id="currentTab"><?php echo $nameUser ?></a>
             <img src="https://cdn2.iconfinder.com/data/icons/people-80/96/Picture1-512.png" width="50" height="50" alt="person_icon" loading="lazy">
-            <a id="exitButton" name="exitButton" onclick="document.location.href='../login/login.php'" class="btn btn-danger"> Salir </a>
+            <a id="exitButton" name="exitButton" href="./cerrarSesion.php" class="btn btn-danger"> Salir </a>
         </div>
     </nav>
     <div class="container-fluid">

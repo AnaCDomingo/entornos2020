@@ -48,7 +48,7 @@ $vCont = 0;
             <a class="navbar-brand" href="#" id="currentTab">Vacantes</a>
         </div>
         <div class="col-sm-4" style="display: flex; justify-content:flex-end;align-items:center">
-            <a class="navbar-brand" href="#"><?php echo $vNombre; ?></a>
+            <a class="navbar-brand" href="../configuration-admin/configuration-u.php"><?php echo $vNombre; ?></a>
             <img src="../shared/person.png" width="50" height="50" alt="person_icon" loading="lazy">
         </div>
     </nav>
@@ -91,7 +91,7 @@ $vCont = 0;
                         if ($vCont % 2 != 0 || $vCont == 1) {
                             echo "<div class='row'>";
                         };
-                        echo "<div class='card'>
+                        echo "<div class='card' style= box-shadow: 5px 2px #cccccc6e>
                         <div class = 'card-title' id = 'deleteButtonContainer'>
                         <a href = 'prompt-confirm.php?id={$row['id']}' class = 'btn btn-danger' id = 'deleteButton'><img id='trashImage' alt = 'cesto_eliminar' src = '../shared/trash.png'></a>
                         </div>
